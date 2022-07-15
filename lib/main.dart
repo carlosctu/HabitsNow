@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'home/home_page.dart';
+import 'presenter/home/calendar/calendar_page.dart';
 
 void main() {
   runApp(const MaterialApp(
-    home: HomePage(),
+    home: CalendarPage(),
     debugShowCheckedModeBanner: false,
   ));
 }

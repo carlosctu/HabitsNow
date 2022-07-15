@@ -1,17 +1,30 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
-class Calendar_Page extends StatefulWidget {
-  const Calendar_Page({Key? key}) : super(key: key);
+import 'widgets/body_calendar.dart';
+
+class CalendarPage extends StatefulWidget {
+  const CalendarPage({Key? key}) : super(key: key);
+
+  void main() {
+    runApp(
+      const MaterialApp(
+        home: CalendarPage(),
+        debugShowCheckedModeBanner: false,
+      ),
+    );
+  }
 
   @override
-  State<Calendar_Page> createState() => _Calendar_PageState();
+  State<CalendarPage> createState() => _CalendarPageState();
 }
 
-class _Calendar_PageState extends State<Calendar_Page> {
+class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold(
+      appBar: null,
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      body: BodyCalendarPage(),
+    );
   }
 }
