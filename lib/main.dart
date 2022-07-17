@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-
-import 'home/home_page.dart';
+import 'package:habits_now_app/presenter/widgets/customBottomBar.dart';
+import 'presenter/home/home_page.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    home: HomePage(),
-    debugShowCheckedModeBanner: false,
-  ));
+  runApp(
+    MaterialApp(
+      home: const CustomBottomBar(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
+    ),
+  );
 }
