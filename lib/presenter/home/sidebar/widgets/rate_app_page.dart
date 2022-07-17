@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'sidebar/sidebar.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+import '../sidebar.dart';
+
+class RateAppPage extends StatelessWidget {
+  const RateAppPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('DEVELOPMENT'),
+        title: const Text('Rate Our App'),
       ),
       drawer: const SideBar(),
     );

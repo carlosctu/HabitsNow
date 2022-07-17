@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'sidebar/sidebar.dart';
+import '../sidebar.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class Contactus extends StatelessWidget {
+  const Contactus({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('DEVELOPMENT'),
+        title: const Text('Contact Us'),
       ),
       drawer: const SideBar(),
     );
