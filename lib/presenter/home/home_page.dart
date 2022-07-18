@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import '../core/colors.dart';
 import '../widgets/customBottomBar.dart';
 import 'sidebar/navigation_drawer.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Home Page"),
       ),
-      body:  const CustomBottomBar(),
+      body: Text('HomePage'),
       drawer: const NavigationDrawer(),
+      bottomNavigationBar: const CustomBottomBar(),
     );
   }
 }

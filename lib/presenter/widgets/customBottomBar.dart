@@ -3,6 +3,7 @@ import 'package:habits_now_app/main.dart';
 import 'package:habits_now_app/presenter/home/calendar/calendar_page.dart';
 import 'package:habits_now_app/presenter/home/home_page.dart';
 import '../core/colors.dart';
+import '../home/sidebar/navigation_drawer.dart';
 
 class CustomBottomBar extends StatefulWidget {
   const CustomBottomBar({Key? key}) : super(key: key);
@@ -21,14 +22,12 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     });
   } //função pra trocar de página
 
+  // body: Center(
+  // child: _appPages.elementAt(_selectedIndex), -->descomentar para funcionar a função de troca de página
+  // ),
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-          child: _appPages.elementAt(_selectedIndex), //-->descomentar para funcionar a função de troca de página
+  Widget build(BuildContext context) => BottomNavigationBar(
 
-          ),
-      bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: AppColors.iconDisablePage,
         showUnselectedLabels: true,
         items: const [
@@ -64,7 +63,5 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         currentIndex: _selectedIndex,
         selectedItemColor: AppColors.iconActivePage,
         onTap: _onitemTapped,
-      ),
-    );
-  }
+      );
 }
