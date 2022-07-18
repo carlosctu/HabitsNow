@@ -3,6 +3,7 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../../../core/colors.dart';
 import '../events.dart';
 
 class BodyCalendarPage extends StatefulWidget {
@@ -61,19 +62,26 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
     return Column(
       children: [
         TableCalendar<Event>(
-          calendarStyle: const CalendarStyle(
+          calendarStyle: CalendarStyle(
             holidayTextStyle: TextStyle(
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: AppColors.iconDisablePage,
             ),
             weekendTextStyle: TextStyle(
-              color: Color.fromARGB(255, 170, 0, 0),
+              color: AppColors.iconDisablePage,
             ),
             defaultTextStyle: TextStyle(
-              color: Color.fromARGB(255, 255, 255, 255),
+              color: AppColors.iconDisablePage,
             ),
             todayTextStyle: TextStyle(
-              color: Color.fromARGB(255, 0, 0, 0),
+              color: AppColors.iconDisablePage,
             ),
+            selectedTextStyle: TextStyle(
+              color: AppColors.topBar,
+            ),
+            selectedDecoration: BoxDecoration(
+              color: AppColors.title,
+              borderRadius: BorderRadius.circular(45),
+            )
           ),
           firstDay: kFirstDay,
           lastDay: kLastDay,
@@ -91,7 +99,9 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
           },
         ),
         ElevatedButton(
-          style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 255, 0, 0))),
+          style: ButtonStyle(
+              backgroundColor:
+                  MaterialStateProperty.all(AppColors.title)),
           child: const Text('Clear selection'),
           onPressed: () {
             setState(() {
