@@ -9,20 +9,26 @@ class CustomImgCont extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 170,
-          width: 300,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            image: DecorationImage(
-              image: AssetImage(assetPath),
-              fit: BoxFit.contain,
+    return Padding(
+      padding: const EdgeInsets.only(
+        top: 15,
+        bottom: 15,
+      ),
+      child: Column(
+        children: [
+          Container(
+            height: 170,
+            width: 300,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: AssetImage(assetPath),
+                fit: BoxFit.contain,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
