@@ -7,6 +7,8 @@ import 'widgets/navigation_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'widgets/rate_us_page.dart';
+
 class NavigationDrawer extends StatefulWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
 
@@ -19,7 +21,6 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   late DateFormat timeFormat;
   late DateFormat dayFormat;
 
-  
   @override
   void initState() {
     super.initState();
@@ -117,7 +118,15 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       text: 'Avalie o aplicativo',
                       icon: Icons.rate_review,
                       // ignore: avoid_print
-                      onClicked: (){}),
+                      onClicked: () {
+                    ReportBug alert = const ReportBug();
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return alert;
+                      },
+                    );
+                  }),
                   buildSideBarItem(context,
                       item: NavigationItem.contactUs,
                       text: 'Contate-nos',
@@ -166,5 +175,104 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   void selectItem(BuildContext context, NavigationItem item) {
     final provider = Provider.of<NavigationProvider>(context, listen: false);
     provider.setNavigationItem(item);
+  }
+}
+
+class ReportBug extends StatelessWidget {
+  const ReportBug({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20),
+      ),
+      backgroundColor: const Color.fromARGB(255, 22, 22, 22),
+      title: Column(
+        children: [
+          const Text(
+            'Reportar bug',
+            style: TextStyle(
+              color: Colors.white70,
+              fontSize: 18,
+            ),
+          ),
+          Container(
+            height: 15,
+            decoration: const BoxDecoration(
+              border: Border(
+                bottom: BorderSide(
+                  color: Colors.white10,
+                  width: 1,
+                  style: BorderStyle.solid,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+      content: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: 100,
+        child: Wrap(
+          children: [
+            Column(
+              children: [
+                const Text(
+                  'Escreva o seu comentário aqui',
+                  style: TextStyle(
+                    color: Colors.white54,
+                  ),
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                TextFormField(
+                  cursorColor: const Color.fromARGB(255, 213, 32, 89),
+                  decoration: const InputDecoration(
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: Color.fromARGB(255, 213, 32, 89),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+      actions: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            MaterialButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'CANCELAR',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            MaterialButton(
+              onPressed: () {},
+              child: const Text(
+                'ENVIAR',
+                style: TextStyle(
+                    color: Color.fromARGB(255, 213, 32, 89),
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }

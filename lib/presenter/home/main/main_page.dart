@@ -37,9 +37,9 @@ class _MainPageState extends State<MainPage> {
         // Adicionar caminho para a Pag. Configurações
         return const HomePage();
       case NavigationItem.becomePremium:
-        return  BecomePremium();
+        return  const BecomePremium();
       case NavigationItem.rateUs:
-        return const RateUs();
+        return const BecomePremium();
       case NavigationItem.contactUs:
         return const ContactUs();
     }
