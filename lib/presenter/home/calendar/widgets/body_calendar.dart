@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/calendar/calendar_page.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../../core/colors.dart';
@@ -130,11 +131,11 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
                     decoration: BoxDecoration(
                       border: Border.all(),
                       borderRadius: BorderRadius.circular(12.0),
-                      color: Colors.white,
+                      color: AppColors.iconDisablePage,
                     ),
                     child: ListTile(
-                      onTap: () => print('${value[index]}'),
-                      title: Text('${value[index]}'),
+                      onTap: () => CalendarPage(), //call tarefas e habitos page,
+                      title: Text('${value[index]}',style: TextStyle(color: Colors.black),),
                     ),
                   );
                 },
