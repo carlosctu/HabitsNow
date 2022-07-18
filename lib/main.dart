@@ -46,7 +46,7 @@ class _MainPageState extends State<MainPage> {
         return const HomePage();
       case NavigationItem.categories:
         // Adicionar caminho para a Pag. Categorias
-        return const CalendarPage();
+        return CalendarPage();
       case NavigationItem.customize:
         // Adicionar caminho para a Pag. Personalizar
         return const HomePage();

@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/calendar/calendar_page.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../../../core/colors.dart';
 import '../../home_page.dart';
@@ -8,7 +9,7 @@ import '../events.dart';
 
 class BodyCalendarPage extends StatefulWidget {
   const BodyCalendarPage({Key? key}) : super(key: key);
-  static String diaFocado = _BodyCalendarPageState.diaFocado;
+  static String diaFocado = _BodyCalendarPageState.diaFocado!;
 
   @override
   State<BodyCalendarPage> createState() => _BodyCalendarPageState();
@@ -16,7 +17,8 @@ class BodyCalendarPage extends StatefulWidget {
 
 class _BodyCalendarPageState extends State<BodyCalendarPage> {
   final ValueNotifier<List<Event>> _selectedEvents = ValueNotifier([]);
-  static String diaFocado = "";
+  static String? diaFocado = "";
+  CalendarFormat formato = CalendarPage().formato;
   
 
   final Set<DateTime> _selectedDays = LinkedHashSet<DateTime>(
@@ -25,13 +27,6 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
   );
 
   DateTime _focusedDay = DateTime.now();
-
-
-  @override
-void initState() {
-    _BodyCalendarPageState.diaFocado = "HOJE";
-    super.initState();
-  }
 
   @override
   void dispose() {
@@ -94,7 +89,7 @@ void initState() {
           firstDay: kFirstDay,
           lastDay: kLastDay,
           focusedDay: _focusedDay,
-          calendarFormat: CalendarFormat.week,
+          calendarFormat: formato,
           eventLoader: _getEventsForDay,
           startingDayOfWeek: StartingDayOfWeek.monday,
           selectedDayPredicate: (day) {

@@ -10,7 +10,7 @@ class CustomBottomBar extends StatefulWidget {
 
 class _CustomBottomBarState extends State<CustomBottomBar> {
   int _selectedIndex = 0; //setando o index inicial do app
-  static const List<Widget> _appPages = [CalendarPage()]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
+  static List<Widget> _appPages = [CalendarPage()]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
 
   void _onitemTapped(int index) {
     setState(() {
