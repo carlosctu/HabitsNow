@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../core/colors.dart';
+import '../home/sidebar/navigation_drawer.dart';
 
 class CustomBottomBar extends StatefulWidget {
   const CustomBottomBar({Key? key}) : super(key: key);
@@ -18,14 +19,11 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
     });
   } //função pra trocar de página
 
+  // body: Center(
+  // child: _appPages.elementAt(_selectedIndex), -->descomentar para funcionar a função de troca de página
+  // ),
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: const Center(
-          // child: _appPages.elementAt(_selectedIndex), -->descomentar para funcionar a função de troca de página
-
-          ),
-      bottomNavigationBar: BottomNavigationBar(
+  Widget build(BuildContext context) => BottomNavigationBar(
         unselectedItemColor: AppColors.iconDisablePage,
         showUnselectedLabels: true,
         items: const [
@@ -61,7 +59,5 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         currentIndex: _selectedIndex,
         selectedItemColor: AppColors.iconActivePage,
         onTap: _onitemTapped,
-      ),
-    );
-  }
+      );
 }

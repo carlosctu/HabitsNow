@@ -1,25 +1,12 @@
 import 'package:flutter/material.dart';
-import 'presenter/home/home_page.dart';
-import 'package:habits_now_app/presenter/home/home_page.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/become_premium_page.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/contact_us_page.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/rate_us_page.dart';
 import 'package:provider/provider.dart';
-import 'presenter/home/sidebar/widgets/navigation_item.dart';
-import 'presenter/home/sidebar/widgets/navigation_provider.dart';
 
-void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => NavigationProvider(),
-    child: MaterialApp(
-      theme: ThemeData.dark(),
-      debugShowCheckedModeBanner: false,
-      title: "Main Page",
-      home: const MainPage(),
-      
-    ),
-  ));
-}
+import '../home_page.dart';
+import '../sidebar/widgets/become_premium_page.dart';
+import '../sidebar/widgets/contact_us_page.dart';
+import '../sidebar/widgets/navigation_item.dart';
+import '../sidebar/widgets/navigation_provider.dart';
+import '../sidebar/widgets/rate_us_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
@@ -32,7 +19,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) => buildPages();
-  
+
   Widget buildPages() {
     final provider = Provider.of<NavigationProvider>(context);
     final navigationItem = provider.navigationItem;
