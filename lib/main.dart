@@ -1,4 +1,12 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
+
+import 'package:habits_now_app/presenter/widgets/customBottomBar.dart';
+import 'presenter/home/home_page.dart';
+import 'presenter/home/home_page.dart';
+
+>>>>>>> 391a88e9579a4b48bff1e0c1bce7e40de5583675
 import 'package:habits_now_app/presenter/home/home_page.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/become_premium_page.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/contact_us_page.dart';
@@ -10,7 +18,12 @@ import 'presenter/home/sidebar/widgets/navigation_provider.dart';
 void main() {
   runApp(ChangeNotifierProvider(
     create: (context) => NavigationProvider(),
+<<<<<<< HEAD
     child:  MaterialApp(
+=======
+    child: const MaterialApp(
+      theme: ThemeData.dark(),
+>>>>>>> 391a88e9579a4b48bff1e0c1bce7e40de5583675
       debugShowCheckedModeBanner: false,
       title: "Main Page",
       theme: ThemeData.dark(),
