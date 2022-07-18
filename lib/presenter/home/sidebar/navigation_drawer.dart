@@ -2,10 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'widgets/navigation_item.dart';
 import 'widgets/navigation_provider.dart';
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
-class NavigationDrawer extends StatelessWidget {
+class NavigationDrawer extends StatefulWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
 
+  @override
+  State<NavigationDrawer> createState() => _NavigationDrawerState();
+}
+
+class _NavigationDrawerState extends State<NavigationDrawer> {
+  late DateFormat dateFormat;
+  late DateFormat timeFormat;
+  late DateFormat dayFormat;
+  @override
+  void initState() {
+    super.initState();
+    initializeDateFormatting();
+    dateFormat = DateFormat.yMMMMd('pt_BR');
+    dayFormat = DateFormat.EEEE('pt_BR');
+  }
+
+  var dateTime = DateTime.now();
   @override
   Widget build(BuildContext context) => Drawer(
         width: MediaQuery.of(context).size.width / 1.4,
@@ -20,34 +39,34 @@ class NavigationDrawer extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 20),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        SizedBox(
+                      children: [
+                        const SizedBox(
                           height: 20,
                         ),
-                        Text(
-                          "HabitNow",
+                        const Text(
+                          "HabitsNow",
                           style: TextStyle(
                             color: Color.fromARGB(255, 213, 32, 89),
                             fontSize: 32,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(
-                          "Quarta-feira",
-                          style: TextStyle(
+                          dayFormat.format(dateTime),
+                          style: const TextStyle(
                             color: Colors.white70,
                             fontSize: 20,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Text(
-                          "13 de julho de 2022",
-                          style: TextStyle(
+                          dateFormat.format(dateTime),
+                          style: const TextStyle(
                             color: Colors.white70,
                             fontSize: 20,
                           ),
