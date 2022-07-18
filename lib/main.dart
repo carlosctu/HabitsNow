@@ -10,13 +10,14 @@ import 'presenter/home/sidebar/widgets/navigation_provider.dart';
 void main() {
   runApp(ChangeNotifierProvider(
     create: (context) => NavigationProvider(),
-    child: const MaterialApp(
+    child:  MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Main Page",
-      // theme: ThemeData(primarySwatch: Colors.deepOrange),
-      home: MainPage(),
+      theme: ThemeData.dark(),
+      home: const MainPage(),
     ),
   ));
+
 }
 
 class MainPage extends StatefulWidget {

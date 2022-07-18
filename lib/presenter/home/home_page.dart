@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/customBottomBar.dart';
 import 'sidebar/navigation_drawer.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,6 +11,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Home Page"),
       ),
+      body:  const CustomBottomBar(),
       drawer: const NavigationDrawer(),
     );
   }
