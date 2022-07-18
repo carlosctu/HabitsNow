@@ -26,7 +26,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
 
           ),
       bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: Colors.white,
+        unselectedItemColor: AppColors.iconDisablePage,
         showUnselectedLabels: true,
         items: const [
           BottomNavigationBarItem(
@@ -59,7 +59,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: const Color.fromARGB(205, 36, 89, 255),
+        selectedItemColor: AppColors.iconActivePage,
         onTap: _onitemTapped,
       ),
     );
