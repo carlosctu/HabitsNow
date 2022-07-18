@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:habits_now_app/presenter/home/calendar/calendar_page.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../../../../main.dart';
 import '../../../core/colors.dart';
 import '../events.dart';
 
@@ -79,14 +80,10 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
             selectedTextStyle: TextStyle(
               color: AppColors.topBar,
             ),
-            selectedDecoration: BoxDecoration(
-              color: AppColors.title,
-              shape: BoxShape.circle
-            ),
-            todayDecoration: BoxDecoration(
-              color: Colors.black,
-              shape: BoxShape.circle
-            ),
+            selectedDecoration:
+                BoxDecoration(color: AppColors.title, shape: BoxShape.circle),
+            todayDecoration:
+                BoxDecoration(color: Colors.black, shape: BoxShape.circle),
           ),
           firstDay: kFirstDay,
           lastDay: kLastDay,
@@ -105,8 +102,7 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
         ),
         ElevatedButton(
           style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(AppColors.title)),
+              backgroundColor: MaterialStateProperty.all(AppColors.title)),
           child: const Text('Clear selection'),
           onPressed: () {
             setState(() {
@@ -134,8 +130,11 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
                       color: AppColors.iconDisablePage,
                     ),
                     child: ListTile(
-                      onTap: () => CalendarPage(), //call tarefas e habitos page,
-                      title: Text('${value[index]}',style: TextStyle(color: Colors.black),),
+                      onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const MainPage())), //call tarefas e habitos page,
+                      title: Text(
+                        '${value[index]}',
+                        style: const TextStyle(color: Colors.black),
+                      ),
                     ),
                   );
                 },
