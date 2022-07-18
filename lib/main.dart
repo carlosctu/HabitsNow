@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-
-import 'presenter/home/calendar/calendar_page.dart';
+import 'package:habits_now_app/presenter/widgets/customBottomBar.dart';
 
 void main() {
-  runApp(const MaterialApp(
-    home: CalendarPage(),
-    debugShowCheckedModeBanner: false,
-  ));
+  runApp(
+    MaterialApp(
+      home: const CustomBottomBar(),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
+    ),
+  );
 }
