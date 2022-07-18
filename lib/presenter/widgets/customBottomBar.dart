@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/main.dart';
 import 'package:habits_now_app/presenter/home/calendar/calendar_page.dart';
-import 'package:habits_now_app/presenter/home/home_page.dart';
 import '../core/colors.dart';
-import '../home/sidebar/navigation_drawer.dart';
-
 class CustomBottomBar extends StatefulWidget {
   const CustomBottomBar({Key? key}) : super(key: key);
 
@@ -27,7 +23,6 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   // ),
   @override
   Widget build(BuildContext context) => BottomNavigationBar(
-
         unselectedItemColor: AppColors.iconDisablePage,
         showUnselectedLabels: true,
         items: const [
