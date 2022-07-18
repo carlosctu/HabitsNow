@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'presenter/home/home_page.dart';
-=======
 import 'package:habits_now_app/presenter/home/home_page.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/become_premium_page.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/contact_us_page.dart';
@@ -9,7 +6,6 @@ import 'package:habits_now_app/presenter/home/sidebar/widgets/rate_us_page.dart'
 import 'package:provider/provider.dart';
 import 'presenter/home/sidebar/widgets/navigation_item.dart';
 import 'presenter/home/sidebar/widgets/navigation_provider.dart';
->>>>>>> 70e5637ea864b3c2e5dd7605eeabbbce25165995
 
 void main() {
   runApp(ChangeNotifierProvider(
