@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:habits_now_app/presenter/home/calendar/calendar_page.dart';
-
-=======
->>>>>>> aeb414536620ecd45950ca69c9f1835e17884a60
 import '../core/colors.dart';
 
 class CustomBottomBar extends StatefulWidget {

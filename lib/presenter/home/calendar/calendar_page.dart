@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'widgets/body_calendar.dart';
 
 void main(List<String> args) {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: CalendarPage(),
   ));
 }

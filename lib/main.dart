@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-=======
 
-import 'package:habits_now_app/presenter/widgets/customBottomBar.dart';
-import 'presenter/home/home_page.dart';
 import 'presenter/home/home_page.dart';
 
->>>>>>> aeb414536620ecd45950ca69c9f1835e17884a60
 import 'package:habits_now_app/presenter/home/home_page.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/become_premium_page.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/contact_us_page.dart';
