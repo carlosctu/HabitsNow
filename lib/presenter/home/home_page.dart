@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'sidebar/sidebar.dart';
+import 'sidebar/navigation_drawer.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -8,9 +8,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('DEVELOPMENT'),
+        title: const Text("Home Page"),
       ),
-      drawer: const SideBar(),
+      drawer: const NavigationDrawer(),
     );
   }
 }

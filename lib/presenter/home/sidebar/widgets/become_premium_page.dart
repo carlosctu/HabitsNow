@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import '../navigation_drawer.dart';
 
-class ContactUs extends StatelessWidget {
-  const ContactUs({Key? key}) : super(key: key);
+class BecomePremium extends StatelessWidget {
+  const BecomePremium({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
@@ -10,8 +11,8 @@ class ContactUs extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.pink,
           centerTitle: true,
-          title: const Text('Contact Us'),
+          title: const Text('Become Premium'),
         ),
-        body: const Text('Contact Us'),
+        body: const Text('Become Premium'),
       );
 }
