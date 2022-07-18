@@ -62,7 +62,7 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
     return Column(
       children: [
         TableCalendar<Event>(
-          calendarStyle: CalendarStyle(
+          calendarStyle: const CalendarStyle(
             holidayTextStyle: TextStyle(
               color: AppColors.iconDisablePage,
             ),
@@ -80,8 +80,12 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
             ),
             selectedDecoration: BoxDecoration(
               color: AppColors.title,
-              borderRadius: BorderRadius.circular(45),
-            )
+              shape: BoxShape.circle
+            ),
+            todayDecoration: BoxDecoration(
+              color: Colors.black,
+              shape: BoxShape.circle
+            ),
           ),
           firstDay: kFirstDay,
           lastDay: kLastDay,
@@ -126,6 +130,7 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
                     decoration: BoxDecoration(
                       border: Border.all(),
                       borderRadius: BorderRadius.circular(12.0),
+                      color: Colors.white,
                     ),
                     child: ListTile(
                       onTap: () => print('${value[index]}'),

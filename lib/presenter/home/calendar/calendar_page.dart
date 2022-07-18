@@ -2,17 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'widgets/body_calendar.dart';
 
+void main(List<String> args) {
+  runApp(MaterialApp(
+    home: CalendarPage(),
+  ));
+}
+
 class CalendarPage extends StatefulWidget {
   const CalendarPage({Key? key}) : super(key: key);
-
-  void main() {
-    runApp(
-      const MaterialApp(
-        home: CalendarPage(),
-        debugShowCheckedModeBanner: false,
-      ),
-    );
-  }
 
   @override
   State<CalendarPage> createState() => _CalendarPageState();
