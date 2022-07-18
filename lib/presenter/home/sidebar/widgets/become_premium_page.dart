@@ -9,7 +9,7 @@ class BecomePremium extends StatelessWidget {
   Widget build(BuildContext context) => Scaffold(
         drawer: const NavigationDrawer(),
         appBar: AppBar(
-          backgroundColor: Colors.pink,
+          backgroundColor: Colors.black,
           centerTitle: true,
           title: const Text('Become Premium'),
         ),

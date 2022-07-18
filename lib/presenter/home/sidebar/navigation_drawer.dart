@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'widgets/navigation_item.dart';
@@ -16,6 +18,8 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   late DateFormat dateFormat;
   late DateFormat timeFormat;
   late DateFormat dayFormat;
+
+  
   @override
   void initState() {
     super.initState();
@@ -75,56 +79,50 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                     ),
                   ),
                   const SizedBox(height: 18),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.home,
-                    text: 'Início',
-                    icon: Icons.home_outlined,
-                  ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.categories,
-                    text: 'Categorias',
-                    icon: Icons.category_outlined,
-                  ),
+                  buildSideBarItem(context,
+                      item: NavigationItem.home,
+                      text: 'Início',
+                      icon: Icons.home_outlined,
+                      onClicked: () {}),
+                  buildSideBarItem(context,
+                      item: NavigationItem.categories,
+                      text: 'Categorias',
+                      icon: Icons.category_outlined,
+                      onClicked: () {}),
                   const Divider(
                     height: 40,
                     color: Colors.white70,
                   ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.customize,
-                    text: 'Personalizar',
-                    icon: Icons.color_lens_outlined,
-                  ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.configurations,
-                    text: 'Configurações',
-                    icon: Icons.tune_outlined,
-                  ),
+                  buildSideBarItem(context,
+                      item: NavigationItem.customize,
+                      text: 'Personalizar',
+                      icon: Icons.color_lens_outlined,
+                      onClicked: () {}),
+                  buildSideBarItem(context,
+                      item: NavigationItem.configurations,
+                      text: 'Configurações',
+                      icon: Icons.tune_outlined,
+                      onClicked: () {}),
                   const Divider(
                     height: 30,
                     color: Colors.white70,
                   ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.becomePremium,
-                    text: 'Obtenha Premium',
-                    icon: Icons.verified_outlined,
-                  ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.rateUs,
-                    text: 'Avalie o aplicativo',
-                    icon: Icons.rate_review,
-                  ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.contactUs,
-                    text: 'Contate-nos',
-                    icon: Icons.report_outlined,
-                  ),
+                  buildSideBarItem(context,
+                      item: NavigationItem.becomePremium,
+                      text: 'Obtenha Premium',
+                      icon: Icons.verified_outlined,
+                      onClicked: () {}),
+                  buildSideBarItem(context,
+                      item: NavigationItem.rateUs,
+                      text: 'Avalie o aplicativo',
+                      icon: Icons.rate_review,
+                      // ignore: avoid_print
+                      onClicked: (){}),
+                  buildSideBarItem(context,
+                      item: NavigationItem.contactUs,
+                      text: 'Contate-nos',
+                      icon: Icons.report_outlined,
+                      onClicked: () {}),
                 ],
               ),
             ],
@@ -132,12 +130,11 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
         ),
       );
 
-  Widget buildSideBarItem(
-    BuildContext context, {
-    required NavigationItem item,
-    required String text,
-    required IconData icon,
-  }) {
+  Widget buildSideBarItem(BuildContext context,
+      {required NavigationItem item,
+      required String text,
+      required IconData icon,
+      required VoidCallback onClicked}) {
     final provider = Provider.of<NavigationProvider>(context);
     final currentItem = provider.navigationItem;
     final isSelected = item == currentItem;
@@ -157,7 +154,11 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
             fontSize: 18,
           ),
         ),
-        onTap: () => selectItem(context, item),
+        // ignore: avoid_print
+        onTap: () {
+          selectItem(context, item);
+          onClicked();
+        },
       ),
     );
   }
