@@ -1,17 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:habits_now_app/presenter/widgets/customBottomBar.dart';
-import 'presenter/home/home_page.dart';
-
-void main() {
-  runApp(
-    MaterialApp(
-      home: const CustomBottomBar(),
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(),
-    ),
-  );
-
 import 'presenter/home/home_page.dart';
 
 import 'package:habits_now_app/presenter/home/home_page.dart';
@@ -22,18 +10,16 @@ import 'package:provider/provider.dart';
 import 'presenter/home/sidebar/widgets/navigation_item.dart';
 import 'presenter/home/sidebar/widgets/navigation_provider.dart';
 
-
 void main() {
   runApp(ChangeNotifierProvider(
     create: (context) => NavigationProvider(),
-    child: const MaterialApp(
+    child: MaterialApp(
+      theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       title: "Main Page",
-      // theme: ThemeData(primarySwatch: Colors.deepOrange),
-      home: MainPage(),
+      home: const MainPage(),
     ),
   ));
-
 }
 
 class MainPage extends StatefulWidget {
