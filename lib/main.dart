@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/widgets/customImgCont.dart';
 
 import 'presenter/home/home_page.dart';
 import 'package:habits_now_app/presenter/home/home_page.dart';
@@ -13,12 +14,10 @@ void main() {
   runApp(ChangeNotifierProvider(
     create: (context) => NavigationProvider(),
     child: MaterialApp(
-      theme: ThemeData.dark(),
-      debugShowCheckedModeBanner: false,
-      title: "Main Page",
-      home: const MainPage(),
-      
-    ),
+        theme: ThemeData.dark(),
+        debugShowCheckedModeBanner: false,
+        title: "Main Page",
+        home: const MainPage()),
   ));
 }
 
@@ -33,7 +32,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) => buildPages();
-  
+
   Widget buildPages() {
     final provider = Provider.of<NavigationProvider>(context);
     final navigationItem = provider.navigationItem;
