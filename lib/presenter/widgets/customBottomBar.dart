@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/main.dart';
+import 'package:habits_now_app/presenter/home/calendar/calendar_page.dart';
+import 'package:habits_now_app/presenter/home/home_page.dart';
 import '../core/colors.dart';
 
 class CustomBottomBar extends StatefulWidget {
@@ -10,7 +13,7 @@ class CustomBottomBar extends StatefulWidget {
 
 class _CustomBottomBarState extends State<CustomBottomBar> {
   int _selectedIndex = 0; //setando o index inicial do app
-  //static const List<Page> _appPages = []; --> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
+  static const List<Widget> _appPages = [CalendarPage()]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
 
   void _onitemTapped(int index) {
     setState(() {
@@ -21,8 +24,8 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(
-          //child: _appPages.elementAt(_selectedIndex), //-->descomentar para funcionar a função de troca de página
+      body: Center(
+          child: _appPages.elementAt(_selectedIndex), //-->descomentar para funcionar a função de troca de página
 
           ),
       bottomNavigationBar: BottomNavigationBar(
