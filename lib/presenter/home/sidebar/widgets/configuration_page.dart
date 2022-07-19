@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../navigation_drawer.dart';
 
-class ContactUs extends StatelessWidget {
-  const ContactUs({Key? key}) : super(key: key);
+class ConfigurationPage extends StatelessWidget {
+  const ConfigurationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(

@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/calendar/calendar_page.dart';
+import '../calendar_page.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../../../core/colors.dart';

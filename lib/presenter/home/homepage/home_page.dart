@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/become_premium_page.dart';
-import '../core/colors.dart';
-import 'calendar/calendar_page.dart';
-import 'sidebar/navigation_drawer.dart';
+import '../sidebar/widgets/become_premium_page.dart';
+import '../../core/colors.dart';
+import '../../home/calendar/calendar_page.dart';
+import '../../home/sidebar/navigation_drawer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -21,9 +21,11 @@ class _HomePageState extends State<HomePage> {
   ]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
 
   void _onitemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    setState(
+      () {
+        _selectedIndex = index;
+      },
+    );
   } //função pra trocar de página
 
   @override
