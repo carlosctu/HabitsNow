@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
-class RateOurApp extends StatelessWidget {
+class RateOurApp extends StatefulWidget {
   const RateOurApp({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<RateOurApp> createState() => _RateOurAppState();
+}
+
+class _RateOurAppState extends State<RateOurApp> {
+  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +59,7 @@ class RateOurApp extends StatelessWidget {
                   height: 30,
                 ),
                 TextFormField(
+                  controller: myController,
                   cursorColor: const Color.fromARGB(255, 213, 32, 89),
                   decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(
@@ -84,6 +92,7 @@ class RateOurApp extends StatelessWidget {
             ),
             MaterialButton(
               onPressed: () {
+                print(Text(myController.text));
                 Navigator.pop(context);
               },
               child: const Text(

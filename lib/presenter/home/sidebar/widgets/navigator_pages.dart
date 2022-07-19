@@ -36,9 +36,9 @@ class _NavigatorPagesState extends State<NavigatorPages> {
         // Adicionar caminho para a Pag. Configurações
         return const ConfigurationPage();
       case NavigationItem.becomePremium:
-        return const BePremium();
+        return CalendarPage();
       case NavigationItem.rateUs:
-        return const RateOurApp();
+        return CalendarPage();
       case NavigationItem.contactUs:
         return CalendarPage();
     }

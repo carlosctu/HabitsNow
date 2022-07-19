@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../core/colors.dart';
 import 'widgets/navigation_item.dart';
 import 'package:intl/intl.dart';
@@ -20,6 +21,16 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   late DateFormat dateFormat;
   late DateFormat timeFormat;
   late DateFormat dayFormat;
+  void openUrl() async {
+    const number = '5547988608094';
+    try {
+      await launch(
+        'https://wa.me/$number?text=Testando123',
+      );
+    } catch (e) {
+      print('Deu erro $e');
+    }
+  }
 
   @override
   void initState() {
@@ -48,7 +59,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       dateFormat: dateFormat,
                     ),
                   ),
-                  const SizedBox(height: 18),
+                  const SizedBox(height: 20),
                   buildSideBarItem(context,
                       item: NavigationItem.home,
                       text: 'Início',
@@ -59,9 +70,17 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       text: 'Categorias',
                       icon: Icons.category_outlined,
                       onClicked: () {}),
-                  const Divider(
-                    height: 40,
-                    color: Colors.white70,
+                  Container(
+                    height: 15,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.white12,
+                          width: 1,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                    ),
                   ),
                   buildSideBarItem(context,
                       item: NavigationItem.customize,
@@ -79,9 +98,17 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       ),
                     );
                   }),
-                  const Divider(
-                    height: 30,
-                    color: Colors.white70,
+                  Container(
+                    height: 15,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.white10,
+                          width: 1,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                    ),
                   ),
                   buildSideBarItem(context,
                       item: NavigationItem.becomePremium,
@@ -113,7 +140,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       item: NavigationItem.contactUs,
                       text: 'Contate-nos',
                       icon: Icons.report_outlined, onClicked: () {
-                    // _openWhatsAppChat();
+                    openUrl();
                   }),
                 ],
               ),
@@ -123,8 +150,6 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
       );
 
   // void _openWhatsAppChat() async {
-  // String phoneNumber = '5547988608094';
-  // var url = 'https://wa.me/$phoneNumber?';
 // ignore: deprecated_member_use
   // await launch(url);
   // } // Envia mensagem pro WhatsApp (precisa como developer)

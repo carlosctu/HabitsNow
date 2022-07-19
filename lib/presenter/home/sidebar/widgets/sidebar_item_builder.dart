@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/core/colors.dart';
+import '../../../core/colors.dart';
 import 'package:provider/provider.dart';
 
 import 'navigation_item.dart';
