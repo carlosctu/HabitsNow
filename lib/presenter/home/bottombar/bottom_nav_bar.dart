@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+
 import '../../core/colors.dart';
 import '../../home/calendar/calendar_page.dart';
-import '../../home/sidebar/navigation_drawer.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class CustomBottomBar extends StatefulWidget {
+  const CustomBottomBar({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<CustomBottomBar> createState() => _CustomBottomBarState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CustomBottomBarState extends State<CustomBottomBar> {
   int _selectedIndex = 0; //setando o index inicial do app
-  static const List<Widget> _appPages = [
+  static final List<Widget> _appPages = [
     CalendarPage(),
     CalendarPage(),
     CalendarPage(),
@@ -29,51 +29,42 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home Page"),
-      ),
-      body: Center(
-        child: _appPages.elementAt(_selectedIndex),
-      ),
-      drawer: const NavigationDrawer(),
-      bottomNavigationBar: BottomNavigationBar(
-        unselectedItemColor: AppColors.iconDisablePage,
-        showUnselectedLabels: true,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.checklist_sharp,
-              size: 30,
-            ),
-            label: 'Hoje',
+    return BottomNavigationBar(
+      unselectedItemColor: AppColors.iconDisablePage,
+      showUnselectedLabels: true,
+      items: const [
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.checklist_sharp,
+            size: 30,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.emoji_events,
-              size: 30,
-            ),
-            label: 'Hábitos',
+          label: 'Hoje',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.emoji_events,
+            size: 30,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.check_circle_outline,
-              size: 30,
-            ),
-            label: 'Tarefas',
+          label: 'Hábitos',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.check_circle_outline,
+            size: 30,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.widgets_outlined,
-              size: 30,
-            ),
-            label: 'Categorias',
+          label: 'Tarefas',
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(
+            Icons.widgets_outlined,
+            size: 30,
           ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: AppColors.iconActivePage,
-        onTap: _onitemTapped,
-      ),
+          label: 'Categorias',
+        ),
+      ],
+      currentIndex: _selectedIndex,
+      selectedItemColor: AppColors.iconActivePage,
+      onTap: _onitemTapped,
     );
   }
 }
