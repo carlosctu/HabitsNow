@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/customBottomBar.dart';
-import '../sidebar/navigation_drawer.dart';
-
 class HabitsPage extends StatefulWidget {
 
   const HabitsPage({ Key? key }) : super(key: key);
@@ -16,12 +13,14 @@ class _HabitsPageState extends State<HabitsPage> {
    @override
    Widget build(BuildContext context) {
        return Scaffold(
-      appBar: AppBar(
-        title: const Text("Habits"),
-      ),
-      body: Text('Habits'),
-      drawer: const NavigationDrawer(),
-      bottomNavigationBar: const CustomBottomBar(),
-    );
+        backgroundColor:  Color.fromARGB(255, 16, 16, 16),          
+           body: Container(child: Column(
+             children: [
+               Text('habitos'),
+             ],
+           ),),
+       );
   }
+
+
 }
