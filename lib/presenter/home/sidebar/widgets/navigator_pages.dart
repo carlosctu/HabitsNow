@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'alert_box_bepremium.dart';
+import 'alex_box_rateourapp.dart';
+import '../../home_page.dart';
 import 'configuration_page.dart';
 import 'package:provider/provider.dart';
-import '../../bottombar/bottom_nav_bar.dart';
 import 'navigation_item.dart';
 import 'navigation_provider.dart';
 
@@ -34,9 +36,9 @@ class _NavigatorPagesState extends State<NavigatorPages> {
         // Adicionar caminho para a Pag. Configurações
         return const ConfigurationPage();
       case NavigationItem.becomePremium:
-        return const HomePage();
+        return const BePremium();
       case NavigationItem.rateUs:
-        return const HomePage();
+        return const RateOurApp();
       case NavigationItem.contactUs:
         return const HomePage();
     }

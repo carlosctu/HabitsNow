@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/core/colors.dart';
-import 'package:habits_now_app/presenter/widgets/custom_top_bar.dart';
+import '../../core/colors.dart';
+import '../../widgets/custom_top_bar.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../bottombar/bottom_nav_bar.dart';
@@ -8,7 +8,7 @@ import '../sidebar/navigation_drawer.dart';
 import 'widgets/body_calendar.dart';
 
 class CalendarPage extends StatefulWidget {
-  CalendarPage({Key? key}) : super(key: key);
+  const CalendarPage({Key? key}) : super(key: key);
   static String diaFocado = _CalendarPageState.diaFocado!;
   static CalendarFormat formato = _CalendarPageState.formato;
 

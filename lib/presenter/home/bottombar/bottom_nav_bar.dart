@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../core/colors.dart';
 import '../../home/calendar/calendar_page.dart';
 import '../../home/sidebar/navigation_drawer.dart';
@@ -12,11 +13,11 @@ class CustomBottomBar extends StatefulWidget {
 
 class _CustomBottomBarState extends State<CustomBottomBar> {
   int _selectedIndex = 0; //setando o index inicial do app
-  static List<Widget> _appPages = [
-    CalendarPage(),
-    CalendarPage(),
-    CalendarPage(),
-    CalendarPage()
+  static final List<Widget> _appPages = [
+    const CalendarPage(),
+    const CalendarPage(),
+    const CalendarPage(),
+    const CalendarPage()
   ]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
 
   void _onitemTapped(int index) {

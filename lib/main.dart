@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/core/colors.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/alex_box_rateourapp.dart';
+import 'presenter/core/colors.dart';
+import 'presenter/home/sidebar/widgets/alex_box_rateourapp.dart';
 
 import 'presenter/home/calendar/calendar_page.dart';
 import 'presenter/home/home_page.dart';
-import 'package:habits_now_app/presenter/home/home_page.dart';
 import 'package:provider/provider.dart';
 
 import 'presenter/home/sidebar/widgets/alert_box_bepremium.dart';
 import 'presenter/home/sidebar/widgets/navigation_item.dart';
 import 'presenter/home/sidebar/widgets/navigation_provider.dart';
-import 'presenter/home/sidebar/widgets/navigator_pages.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -47,7 +45,7 @@ class _MainPageState extends State<MainPage> {
         return const HomePage();
       case NavigationItem.categories:
         // Adicionar caminho para a Pag. Categorias
-        return CalendarPage();
+        return const CalendarPage();
       case NavigationItem.customize:
         // Adicionar caminho para a Pag. Personalizar
         return const HomePage();

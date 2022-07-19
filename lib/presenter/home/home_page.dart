@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/bottombar/bottom_nav_bar.dart';
 import '../core/colors.dart';
 import '../widgets/custom_top_bar.dart';
-import 'bottombar/bottom_nav_bar.dart';
 import 'sidebar/navigation_drawer.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: AppColors.backgroundPage,
       appBar: CustomTopBar(title:"Home Page"),
       drawer: NavigationDrawer(),
-      bottomNavigationBar: HomePage(),
+      bottomNavigationBar: CustomBottomBar(),
     );
   }
 }
