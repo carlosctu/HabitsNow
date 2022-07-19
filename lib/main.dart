@@ -42,7 +42,7 @@ class _MainPageState extends State<MainPage> {
 
     switch (navigationItem) {
       case NavigationItem.home:
-        return const HomePage();
+        return CalendarPage();
       case NavigationItem.categories:
         // Adicionar caminho para a Pag. Categorias
         return CalendarPage();
