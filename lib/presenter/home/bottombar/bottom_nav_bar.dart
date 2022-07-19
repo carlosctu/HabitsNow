@@ -3,16 +3,16 @@ import '../../core/colors.dart';
 import '../../home/calendar/calendar_page.dart';
 import '../../home/sidebar/navigation_drawer.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class CustomBottomBar extends StatefulWidget {
+  const CustomBottomBar({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<CustomBottomBar> createState() => _CustomBottomBarState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _CustomBottomBarState extends State<CustomBottomBar> {
   int _selectedIndex = 0; //setando o index inicial do app
-  static const List<Widget> _appPages = [
+  static List<Widget> _appPages = [
     CalendarPage(),
     CalendarPage(),
     CalendarPage(),

@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/core/colors.dart';
+import 'package:provider/provider.dart';
+import 'widgets/navigation_item.dart';
+import 'widgets/navigation_provider.dart';
+import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -34,7 +39,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   Widget build(BuildContext context) => Drawer(
         width: MediaQuery.of(context).size.width / 1.4,
         child: Container(
-          color: const Color.fromARGB(255, 22, 22, 22),
+          color: AppColors.backgroundPage,
           child: ListView(
             children: <Widget>[
               Column(
