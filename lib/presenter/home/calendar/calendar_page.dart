@@ -3,7 +3,7 @@ import 'package:habits_now_app/presenter/core/colors.dart';
 import 'package:habits_now_app/presenter/widgets/custom_top_bar.dart';
 import 'package:table_calendar/table_calendar.dart';
 
-import '../../widgets/customBottomBar.dart';
+import '../bottombar/bottom_nav_bar.dart';
 import '../sidebar/navigation_drawer.dart';
 import 'widgets/body_calendar.dart';
 

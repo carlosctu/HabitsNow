@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:habits_now_app/presenter/core/colors.dart';
+import 'package:habits_now_app/presenter/home/sidebar/widgets/alex_box_rateourapp.dart';
 
 import 'presenter/home/calendar/calendar_page.dart';
 import 'presenter/home/home_page.dart';
 import 'package:habits_now_app/presenter/home/home_page.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/become_premium_page.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/contact_us_page.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/rate_us_page.dart';
 import 'package:provider/provider.dart';
+
+import 'presenter/home/sidebar/widgets/alert_box_bepremium.dart';
 import 'presenter/home/sidebar/widgets/navigation_item.dart';
 import 'presenter/home/sidebar/widgets/navigation_provider.dart';
+import 'presenter/home/sidebar/widgets/navigator_pages.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
@@ -54,11 +55,11 @@ class _MainPageState extends State<MainPage> {
         // Adicionar caminho para a Pag. Configurações
         return const HomePage();
       case NavigationItem.becomePremium:
-        return const BecomePremium();
+        return const BePremium();
       case NavigationItem.rateUs:
-        return const RateUs();
+        return const RateOurApp();
       case NavigationItem.contactUs:
-        return const ContactUs();
+        return const HomePage();
     }
   }
 }
