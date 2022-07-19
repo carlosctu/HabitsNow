@@ -8,4 +8,5 @@ class AppColors {
   static const Color iconDisablePage = Color.fromARGB(255, 60, 60, 60);
   static const Color topBar = Color.fromARGB(255, 255, 250, 250);
   static const Color optionsDialogBox = Color.fromARGB(255, 213, 71, 58);
+  static const Color backgroundPage = Color.fromARGB(255, 22, 22, 22);
 }

@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+import '../../calendar/calendar_page.dart';
+import 'alert_box_bepremium.dart';
+import 'alex_box_rateourapp.dart';
+import 'configuration_page.dart';
 import 'package:provider/provider.dart';
+import 'navigation_item.dart';
+import 'navigation_provider.dart';
 
-import '../calendar/calendar_page.dart';
-import '../sidebar/widgets/navigation_item.dart';
-import '../sidebar/widgets/navigation_provider.dart';
-
-class MainPage extends StatefulWidget {
-  const MainPage({Key? key}) : super(key: key);
+class NavigatorPages extends StatefulWidget {
+  const NavigatorPages({Key? key}) : super(key: key);
 
   @override
   // ignore: library_private_types_in_public_api
-  _MainPageState createState() => _MainPageState();
+  _NavigatorPagesState createState() => _NavigatorPagesState();
 }
 
-class _MainPageState extends State<MainPage> {
+class _NavigatorPagesState extends State<NavigatorPages> {
   @override
   Widget build(BuildContext context) => buildPages();
 
@@ -32,11 +34,11 @@ class _MainPageState extends State<MainPage> {
         return CalendarPage();
       case NavigationItem.configurations:
         // Adicionar caminho para a Pag. Configurações
-        return CalendarPage();
+        return const ConfigurationPage();
       case NavigationItem.becomePremium:
-        return CalendarPage();
+        return const BePremium();
       case NavigationItem.rateUs:
-        return CalendarPage();
+        return const RateOurApp();
       case NavigationItem.contactUs:
         return CalendarPage();
     }
