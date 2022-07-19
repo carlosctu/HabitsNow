@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/task/task_page.dart';
 import '../../core/colors.dart';
 import '../../home/calendar/calendar_page.dart';
 import '../../home/sidebar/navigation_drawer.dart';
@@ -15,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   static const List<Widget> _appPages = [
     CalendarPage(),
     CalendarPage(),
+    TaskPage(),
     CalendarPage(),
     CalendarPage()
   ]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
@@ -34,7 +36,7 @@ class _HomePageState extends State<HomePage> {
         title: const Text("Home Page"),
       ),
       body: Center(
-        child: _appPages.elementAt(_selectedIndex),
+        child: _appPages[_selectedIndex],
       ),
       drawer: const NavigationDrawer(),
       bottomNavigationBar: BottomNavigationBar(
