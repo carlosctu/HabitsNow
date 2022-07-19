@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../sidebar/widgets/become_premium_page.dart';
 import '../../core/colors.dart';
 import '../../home/calendar/calendar_page.dart';
 import '../../home/sidebar/navigation_drawer.dart';
@@ -17,7 +16,7 @@ class _HomePageState extends State<HomePage> {
     CalendarPage(),
     CalendarPage(),
     CalendarPage(),
-    BecomePremium()
+    CalendarPage()
   ]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
 
   void _onitemTapped(int index) {

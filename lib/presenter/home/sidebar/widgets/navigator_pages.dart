@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/configuration_page.dart';
+import 'configuration_page.dart';
 import 'package:provider/provider.dart';
-import '../../homepage/home_page.dart';
+import '../../bottombar/bottom_nav_bar.dart';
 import 'navigation_item.dart';
 import 'navigation_provider.dart';
 
