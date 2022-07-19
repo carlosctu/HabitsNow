@@ -1,33 +1,43 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/main.dart';
-import 'package:habits_now_app/presenter/home/calendar/calendar_page.dart';
-import 'package:habits_now_app/presenter/home/home_page.dart';
-import '../core/colors.dart';
-import '../home/sidebar/navigation_drawer.dart';
+import '../../core/colors.dart';
+import '../../home/calendar/calendar_page.dart';
+import '../../home/sidebar/navigation_drawer.dart';
 
-class CustomBottomBar extends StatefulWidget {
-  const CustomBottomBar({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
-  State<CustomBottomBar> createState() => _CustomBottomBarState();
+  State<HomePage> createState() => _HomePageState();
 }
 
-class _CustomBottomBarState extends State<CustomBottomBar> {
+class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0; //setando o index inicial do app
-  static const List<Widget> _appPages = [CalendarPage()]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
+  static const List<Widget> _appPages = [
+    CalendarPage(),
+    CalendarPage(),
+    CalendarPage(),
+    CalendarPage()
+  ]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
 
   void _onitemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    setState(
+      () {
+        _selectedIndex = index;
+      },
+    );
   } //função pra trocar de página
 
-  // body: Center(
-  // child: _appPages.elementAt(_selectedIndex), -->descomentar para funcionar a função de troca de página
-  // ),
   @override
-  Widget build(BuildContext context) => BottomNavigationBar(
-
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Home Page"),
+      ),
+      body: Center(
+        child: _appPages.elementAt(_selectedIndex),
+      ),
+      drawer: const NavigationDrawer(),
+      bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: AppColors.iconDisablePage,
         showUnselectedLabels: true,
         items: const [
@@ -63,5 +73,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
         currentIndex: _selectedIndex,
         selectedItemColor: AppColors.iconActivePage,
         onTap: _onitemTapped,
-      );
+      ),
+    );
+  }
 }
