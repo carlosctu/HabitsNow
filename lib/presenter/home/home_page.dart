@@ -3,7 +3,6 @@ import 'package:habits_now_app/presenter/home/sidebar/widgets/become_premium_pag
 import '../core/colors.dart';
 import 'calendar/calendar_page.dart';
 import 'sidebar/navigation_drawer.dart';
-import 'sidebar/widgets/rate_us_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

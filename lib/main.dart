@@ -6,7 +6,6 @@ import 'package:habits_now_app/presenter/home/sidebar/widgets/contact_us_page.da
 import 'package:provider/provider.dart';
 import 'presenter/home/sidebar/widgets/navigation_item.dart';
 import 'presenter/home/sidebar/widgets/navigation_provider.dart';
-import 'presenter/home/sidebar/widgets/rate_us_page.dart';
 
 void main() {
   runApp(ChangeNotifierProvider(
