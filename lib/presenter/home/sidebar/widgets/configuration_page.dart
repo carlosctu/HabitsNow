@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habits_now_app/presenter/home/bottombar/bottom_nav_bar.dart';
 
+import '../../home_page.dart';
+
 class ConfigurationPage extends StatelessWidget {
   const ConfigurationPage({Key? key}) : super(key: key);
 
@@ -77,7 +79,6 @@ class _ListViewBuilderState extends State<ListViewBuilder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: ListView.builder(
         itemCount: iconList.length,
         itemBuilder: (BuildContext context, int index) {
