@@ -11,7 +11,7 @@ void main() {
       child: MaterialApp(
         theme: ThemeData.dark(),
         debugShowCheckedModeBanner: false,
-        title: "Main Page",
+        title: "",
         home:  const NavigatorPages(),
       ),
     ),
