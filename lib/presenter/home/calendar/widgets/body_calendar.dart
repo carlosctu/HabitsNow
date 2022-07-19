@@ -3,12 +3,13 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import '../calendar_page.dart';
 import 'package:table_calendar/table_calendar.dart';
-
 import '../../../core/colors.dart';
+import '../../home_page.dart';
 import '../events.dart';
 
 class BodyCalendarPage extends StatefulWidget {
   const BodyCalendarPage({Key? key}) : super(key: key);
+  static String diaFocado = _BodyCalendarPageState.diaFocado!;
 
   @override
   State<BodyCalendarPage> createState() => _BodyCalendarPageState();
@@ -16,8 +17,10 @@ class BodyCalendarPage extends StatefulWidget {
 
 class _BodyCalendarPageState extends State<BodyCalendarPage> {
   final ValueNotifier<List<Event>> _selectedEvents = ValueNotifier([]);
+  static String? diaFocado = "";
+  static CalendarFormat formato = CalendarPage.formato;
+  
 
-  // Using a `LinkedHashSet` is recommended due to equality comparison override
   final Set<DateTime> _selectedDays = LinkedHashSet<DateTime>(
     equals: isSameDay,
     hashCode: getHashCode,
@@ -32,28 +35,27 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
   }
 
   List<Event> _getEventsForDay(DateTime day) {
-    // Implementation example
     return kEvents[day] ?? [];
   }
 
   List<Event> _getEventsForDays(Set<DateTime> days) {
-    // Implementation example
-    // Note that days are in selection order (same applies to events)
     return [
       for (final d in days) ..._getEventsForDay(d),
     ];
   }
 
   void _onDaySelected(DateTime selectedDay, DateTime focusedDay) {
-    setState(() {
-      _focusedDay = focusedDay;
-      // Update values in a Set
-      if (_selectedDays.contains(selectedDay)) {
-        _selectedDays.remove(selectedDay);
-      } else {
-        _selectedDays.add(selectedDay);
-      }
-    });
+    setState(
+      () {
+        _focusedDay = focusedDay;
+        if (_selectedDays.contains(selectedDay)) {
+          _selectedDays.remove(selectedDay);
+        } else {
+          _selectedDays.add(selectedDay);
+        }
+        _BodyCalendarPageState.diaFocado = "${selectedDay.day}/${selectedDay.month}/${selectedDay.year}";
+      },
+    );
 
     _selectedEvents.value = _getEventsForDays(_selectedDays);
   }
@@ -79,23 +81,18 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
             selectedTextStyle: TextStyle(
               color: AppColors.topBar,
             ),
-            selectedDecoration: BoxDecoration(
-              color: AppColors.title,
-              shape: BoxShape.circle
-            ),
-            todayDecoration: BoxDecoration(
-              color: Colors.black,
-              shape: BoxShape.circle
-            ),
+            selectedDecoration:
+                BoxDecoration(color: AppColors.title, shape: BoxShape.circle),
+            todayDecoration:
+                BoxDecoration(color: AppColors.backgroundPage, shape: BoxShape.circle),
           ),
           firstDay: kFirstDay,
           lastDay: kLastDay,
           focusedDay: _focusedDay,
-          calendarFormat: CalendarFormat.week, //_calendarFormat,
+          calendarFormat: formato,
           eventLoader: _getEventsForDay,
           startingDayOfWeek: StartingDayOfWeek.monday,
           selectedDayPredicate: (day) {
-            // Use values from Set to mark multiple days as selected
             return _selectedDays.contains(day);
           },
           onDaySelected: _onDaySelected,
@@ -105,14 +102,15 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
         ),
         ElevatedButton(
           style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all(AppColors.title)),
+              backgroundColor: MaterialStateProperty.all(AppColors.title)),
           child: const Text('Clear selection'),
           onPressed: () {
-            setState(() {
-              _selectedDays.clear();
-              _selectedEvents.value = [];
-            });
+            setState(
+              () {
+                _selectedDays.clear();
+                _selectedEvents.value = [];
+              },
+            );
           },
         ),
         const SizedBox(height: 8.0),
@@ -134,8 +132,16 @@ class _BodyCalendarPageState extends State<BodyCalendarPage> {
                       color: AppColors.iconDisablePage,
                     ),
                     child: ListTile(
-                      onTap: () => CalendarPage(), //call tarefas e habitos page,
-                      title: Text('${value[index]}',style: TextStyle(color: Colors.black),),
+                      onTap: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) =>
+                              const HomePage(), // Adicionar caminho para a Pag. Tarefas ou Hábitos
+                        ),
+                      ),
+                      title: Text(
+                        '${value[index]}',
+                        style: const TextStyle(color: Colors.black),
+                      ),
                     ),
                   );
                 },
