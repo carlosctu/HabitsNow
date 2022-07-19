@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/core/colors.dart';
 import 'package:provider/provider.dart';
 
 import 'navigation_item.dart';
@@ -16,7 +17,7 @@ Widget buildSideBarItem(BuildContext context,
       isSelected ? const Color.fromARGB(255, 213, 32, 89) : Colors.white70;
 
   return Material(
-    color: Colors.transparent,
+    color: AppColors.backgroundPage,
     child: ListTile(
       selected: isSelected,
       selectedTileColor: const Color.fromARGB(50, 213, 32, 89),

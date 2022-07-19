@@ -15,44 +15,41 @@ class HeaderSideBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.only(left: 20),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const SizedBox(
-            height: 20,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(
+          height: 20,
+        ),
+        const Text(
+          "HabitsNow",
+          style: TextStyle(
+            color: Color.fromARGB(255, 213, 32, 89),
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
           ),
-          const Text(
-            "HabitsNow",
-            style: TextStyle(
-              color: Color.fromARGB(255, 213, 32, 89),
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-            ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          dayFormat.format(dateTime),
+          style: const TextStyle(
+            color: Colors.white70,
+            fontSize: 20,
           ),
-          const SizedBox(
-            height: 10,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          dateFormat.format(dateTime),
+          style: const TextStyle(
+            color: Colors.white70,
+            fontSize: 20,
           ),
-          Text(
-            dayFormat.format(dateTime),
-            style: const TextStyle(
-              color: Colors.white70,
-              fontSize: 20,
-            ),
-          ),
-          const SizedBox(
-            height: 10,
-          ),
-          Text(
-            dateFormat.format(dateTime),
-            style: const TextStyle(
-              color: Colors.white70,
-              fontSize: 20,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

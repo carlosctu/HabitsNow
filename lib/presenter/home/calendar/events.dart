@@ -11,7 +11,6 @@ class Event {
   String toString() => title;
 }
 
-
 /// Example events.
 ///
 /// Using a [LinkedHashMap] is highly recommended if you decide to use a map.
