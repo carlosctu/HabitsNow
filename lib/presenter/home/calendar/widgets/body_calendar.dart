@@ -18,7 +18,7 @@ class BodyCalendarPage extends StatefulWidget {
 class _BodyCalendarPageState extends State<BodyCalendarPage> {
   final ValueNotifier<List<Event>> _selectedEvents = ValueNotifier([]);
   static String? diaFocado = "";
-  CalendarFormat formato = CalendarPage().formato;
+  static CalendarFormat formato = CalendarPage.formato;
   
 
   final Set<DateTime> _selectedDays = LinkedHashSet<DateTime>(

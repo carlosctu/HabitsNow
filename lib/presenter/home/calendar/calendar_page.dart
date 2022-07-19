@@ -10,7 +10,7 @@ import 'widgets/body_calendar.dart';
 class CalendarPage extends StatefulWidget {
   CalendarPage({Key? key}) : super(key: key);
   static String diaFocado = _CalendarPageState.diaFocado!;
-  CalendarFormat formato = _CalendarPageState.formato;
+  static CalendarFormat formato = _CalendarPageState.formato;
 
   @override
   State<CalendarPage> createState() => _CalendarPageState();
@@ -25,8 +25,6 @@ class _CalendarPageState extends State<CalendarPage> {
     diaFocado = "Hoje";
     super.initState();
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
