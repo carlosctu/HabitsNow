@@ -3,8 +3,6 @@ import '../../core/colors.dart';
 import 'widgets/navigation_item.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import 'widgets/alert_box_bepremium.dart';
 import 'widgets/alex_box_rateourapp.dart';
 import 'widgets/configuration_page.dart';

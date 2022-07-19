@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/core/colors.dart';
 import '../../calendar/calendar_page.dart';
 
 class ConfigurationPage extends StatelessWidget {
@@ -8,7 +9,7 @@ class ConfigurationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 66, 66, 66),
+        backgroundColor: AppColors.backgroundPage,
         title: const Text('Configurações'),
         leading: IconButton(
           icon: const Icon(
@@ -26,7 +27,7 @@ class ConfigurationPage extends StatelessWidget {
         ),
       ),
       body: const ListViewBuilder(),
-      backgroundColor: Colors.black87,
+      backgroundColor: AppColors.backgroundPage,
     );
   }
 }
@@ -77,6 +78,7 @@ class _ListViewBuilderState extends State<ListViewBuilder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.backgroundPage,
       body: ListView.builder(
         itemCount: iconList.length,
         itemBuilder: (BuildContext context, int index) {
