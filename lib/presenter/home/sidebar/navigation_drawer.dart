@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import 'widgets/alert_box_bepremium.dart';
 import 'widgets/alex_box_rateourapp.dart';
+import 'widgets/configuration_page.dart';
 import 'widgets/header_sidebar.dart';
 import 'widgets/navigation_item.dart';
 import 'widgets/sidebar_item_builder.dart';
@@ -71,8 +70,14 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   buildSideBarItem(context,
                       item: NavigationItem.configurations,
                       text: 'Configurações',
-                      icon: Icons.tune_outlined,
-                      onClicked: () {}),
+                      icon: Icons.tune_outlined, onClicked: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ConfigurationPage(),
+                      ),
+                    );
+                  }),
                   const Divider(
                     height: 30,
                     color: Colors.white70,
@@ -107,7 +112,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       item: NavigationItem.contactUs,
                       text: 'Contate-nos',
                       icon: Icons.report_outlined, onClicked: () {
-                    _openWhatsAppChat();
+                    // _openWhatsAppChat();
                   }),
                 ],
               ),
@@ -116,10 +121,10 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
         ),
       );
 
-  void _openWhatsAppChat() async {
-    String phoneNumber = '5547988608094';
-    var url = 'https://wa.me/$phoneNumber?';
+  // void _openWhatsAppChat() async {
+  // String phoneNumber = '5547988608094';
+  // var url = 'https://wa.me/$phoneNumber?';
 // ignore: deprecated_member_use
-    await launch(url);
-  }
+  // await launch(url);
+  // } // Envia mensagem pro WhatsApp (precisa como developer)
 }
