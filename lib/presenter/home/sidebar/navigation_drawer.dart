@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/core/colors.dart';
-import 'package:provider/provider.dart';
+import '../../core/colors.dart';
 import 'widgets/navigation_item.dart';
-import 'widgets/navigation_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
+
 import 'widgets/alert_box_bepremium.dart';
 import 'widgets/alex_box_rateourapp.dart';
 import 'widgets/configuration_page.dart';
 import 'widgets/header_sidebar.dart';
-import 'widgets/navigation_item.dart';
 import 'widgets/sidebar_item_builder.dart';
 
 class NavigationDrawer extends StatefulWidget {

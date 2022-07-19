@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/core/colors.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/alex_box_rateourapp.dart';
+import 'presenter/core/colors.dart';
 import 'presenter/home/calendar/calendar_page.dart';
-import 'presenter/home/home_page.dart';
-import 'package:habits_now_app/presenter/home/home_page.dart';
 import 'package:provider/provider.dart';
-import 'presenter/home/sidebar/widgets/alert_box_bepremium.dart';
 import 'presenter/home/sidebar/widgets/navigation_item.dart';
 import 'presenter/home/sidebar/widgets/navigation_provider.dart';
 
@@ -18,7 +14,6 @@ void main() {
       debugShowCheckedModeBanner: false,
       title: "Main Page",
       home: const MainPage(),
-      
     ),
   ));
 }
@@ -34,29 +29,29 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) => buildPages();
-  
+
   Widget buildPages() {
     final provider = Provider.of<NavigationProvider>(context);
     final navigationItem = provider.navigationItem;
 
     switch (navigationItem) {
       case NavigationItem.home:
-        return const HomePage();
+        return CalendarPage();
       case NavigationItem.categories:
         // Adicionar caminho para a Pag. Categorias
         return CalendarPage();
       case NavigationItem.customize:
         // Adicionar caminho para a Pag. Personalizar
-        return const HomePage();
+        return CalendarPage();
       case NavigationItem.configurations:
         // Adicionar caminho para a Pag. Configurações
-        return const HomePage();
+        return CalendarPage();
       case NavigationItem.becomePremium:
-        return const BePremium();
+        return CalendarPage();
       case NavigationItem.rateUs:
-        return const RateOurApp();
+        return CalendarPage();
       case NavigationItem.contactUs:
-        return const HomePage();
+        return CalendarPage();
     }
   }
 }

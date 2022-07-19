@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/bottombar/bottom_nav_bar.dart';
-
-import '../../home_page.dart';
+import '../../calendar/calendar_page.dart';
 
 class ConfigurationPage extends StatelessWidget {
   const ConfigurationPage({Key? key}) : super(key: key);
@@ -21,7 +19,7 @@ class ConfigurationPage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const HomePage(),
+                builder: (context) => CalendarPage(),
               ),
             );
           },
