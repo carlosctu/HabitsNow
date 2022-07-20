@@ -1,7 +1,6 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/home_page.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import '../../core/colors.dart';
@@ -9,14 +8,13 @@ import '../../widgets/custom_top_bar.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 import '../sidebar/navigation_drawer.dart';
-import '../task/task.dart';
 import 'events.dart';
 
 class CalendarPage extends StatefulWidget {
   CalendarPage({Key? key, this.callback}) : super(key: key);
   final String diaFocado = _CalendarPageState.diaFocado;
   final CalendarFormat formato = _CalendarPageState.formato;
-  Function? callback;
+  final Function? callback;
 
   @override
   State<CalendarPage> createState() => _CalendarPageState();
@@ -27,6 +25,7 @@ class _CalendarPageState extends State<CalendarPage> {
   static CalendarFormat formato = CalendarFormat.week;
   Color corIconeAgenda = AppColors.iconDisablePage;
   int contButtonAgenda = 0;
+  static DateTime? diaSelecionado = DateTime.now();
   
 
   final ValueNotifier<List<Event>> _selectedEvents = ValueNotifier([]);
@@ -63,6 +62,7 @@ class _CalendarPageState extends State<CalendarPage> {
         } else {
           _selectedDays.add(selectedDay);
         }
+        _CalendarPageState.diaSelecionado = selectedDay;
         _CalendarPageState
                 .diaFocado = //DateFormat('EEEEE',"pt_BR").format(selectedDay);
             "${selectedDay.day} de ${DateFormat('MMMM', "pt_BR").format(selectedDay)} de ${selectedDay.year}";
@@ -82,7 +82,7 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 0, 0),
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       appBar: CustomTopBar(
         title: diaFocado,
         simbol: IconButton(
@@ -156,6 +156,9 @@ class _CalendarPageState extends State<CalendarPage> {
                 backgroundColor: MaterialStateProperty.all(AppColors.title)),
             child: const Text('Clear selection'),
             onPressed: () {
+              if(kEvents[diaSelecionado] != null) {
+                kEvents[diaSelecionado]!.add(const Event("ola"));
+              }
               setState(
                 () {
                   _selectedDays.clear();
@@ -201,7 +204,7 @@ class _CalendarPageState extends State<CalendarPage> {
       ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: AppColors.iconActivePage,
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
         onPressed: () => print('Fui clicado'),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

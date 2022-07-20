@@ -17,7 +17,8 @@ class Event {
 final kEvents = LinkedHashMap<DateTime, List<Event>>(
   equals: isSameDay,
   hashCode: getHashCode,
-)..addAll(_kEventSource);
+)
+..addAll(_kEventSource);
 
 final _kEventSource = Map.fromIterable(List.generate(50, (index) => index),
     key: (item) => DateTime.utc(kFirstDay.year, kFirstDay.month, item * 5),
@@ -25,8 +26,6 @@ final _kEventSource = Map.fromIterable(List.generate(50, (index) => index),
         item % 4 + 1, (index) => Event('Event $item | ${index + 1}')))
   ..addAll({
     kToday: [
-      const Event('Today\'s Event 1'),
-      const Event('Today\'s Event 2'),
     ],
   });
 
