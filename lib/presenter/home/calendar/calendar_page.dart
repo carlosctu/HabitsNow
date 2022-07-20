@@ -10,6 +10,7 @@ import 'package:table_calendar/table_calendar.dart';
 import '../bottombar/bottom_nav_bar.dart';
 import '../home_page.dart';
 import '../sidebar/navigation_drawer.dart';
+import '../task/task.dart';
 import 'events.dart';
 
 class CalendarPage extends StatefulWidget {
@@ -185,7 +186,7 @@ class _CalendarPageState extends State<CalendarPage> {
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                const HomePage(), // Adicionar caminho para a Pag. Tarefas ou Hábitos
+                                const TaskPage(), // Adicionar caminho para a Pag. Tarefas ou Hábitos
                           ),
                         ),
                         title: Text(
