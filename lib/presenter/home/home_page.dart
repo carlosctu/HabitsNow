@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/habits/widgets/show_modal_button.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/configuration_page.dart';
 import 'package:habits_now_app/presenter/home/task/task.dart';
 import '../core/colors.dart';
@@ -39,7 +40,8 @@ class _HomePageState extends State<HomePage> {
         child: _appPages.elementAt(_selectedIndex),
       ),
       drawer: const NavigationDrawer(),
-
+      floatingActionButton: ShowModalButton(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: AppColors.iconDisablePage,
         showUnselectedLabels: true,

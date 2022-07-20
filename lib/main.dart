@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/task/model/task_model.dart';
+import 'package:habits_now_app/presenter/home/task/provider/task_provider.dart';
+import 'package:habits_now_app/presenter/home/task/task.dart';
+import 'package:habits_now_app/presenter/home/task/widgets/task_list_widget.dart';
 import 'presenter/core/colors.dart';
 import 'presenter/home/sidebar/widgets/alex_box_rateourapp.dart';
 
@@ -11,8 +15,16 @@ import 'presenter/home/sidebar/widgets/navigation_item.dart';
 import 'presenter/home/sidebar/widgets/navigation_provider.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider(
-    create: (context) => NavigationProvider(),
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<NavigationProvider>(
+        create: (context) => NavigationProvider(),
+        child: TaskPage(),
+      ),
+      ChangeNotifierProvider<TaskProvider>(
+        create: (context) => TaskProvider(),
+      )
+    ],
     child: MaterialApp(
       color: AppColors.backgroundPage,
       theme: ThemeData.dark(),

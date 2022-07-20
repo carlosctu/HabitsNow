@@ -201,12 +201,12 @@ class _CalendarPageState extends State<CalendarPage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.iconActivePage,
-        child: Icon(Icons.add),
-        onPressed: () => print('Fui clicado'),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   backgroundColor: AppColors.iconActivePage,
+      //   child: Icon(Icons.add),
+      //   onPressed: () => print('Fui clicado'),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

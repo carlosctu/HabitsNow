@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/habits/widgets/show_modal_button.dart';
 import 'package:habits_now_app/presenter/widgets/custom_top_bar.dart';
 
 import '../../core/colors.dart';
@@ -84,12 +85,8 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.iconActivePage,
-        child: Icon(Icons.add),
-        onPressed: () => print('Fui clicado'),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: ShowModalButton(),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

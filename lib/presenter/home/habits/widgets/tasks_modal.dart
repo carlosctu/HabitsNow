@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../task/task.dart';
+import '../../task/widgets/add_task_dialog.dart';
+
 class TaskModal extends StatelessWidget {
   const TaskModal({
     Key? key,
@@ -13,13 +16,18 @@ class TaskModal extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: MaterialButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => showDialog(
+              context: context,
+              builder: (context) {
+                return AddTaskDialog();
+              },
+            ),
             child: Row(
               children: [
                 const CircleAvatar(
                   backgroundColor: Color.fromARGB(23, 255, 7, 61),
                   child: Icon(
-                    Icons.check, 
+                    Icons.check,
                     color: Color.fromARGB(255, 188, 31, 70),
                   ),
                 ),
