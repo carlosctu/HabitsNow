@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import '../../calendar/calendar_page.dart';
 import 'alert_box_bepremium.dart';
 import 'alex_box_rateourapp.dart';
+import '../../home_page.dart';
 import 'configuration_page.dart';
 import 'package:provider/provider.dart';
 import 'navigation_item.dart';
@@ -25,13 +25,13 @@ class _NavigatorPagesState extends State<NavigatorPages> {
 
     switch (navigationItem) {
       case NavigationItem.home:
-        return CalendarPage();
+        return const HomePage();
       case NavigationItem.categories:
         // Adicionar caminho para a Pag. Categorias
-        return CalendarPage();
+        return const HomePage();
       case NavigationItem.customize:
         // Adicionar caminho para a Pag. Personalizar
-        return CalendarPage();
+        return const HomePage();
       case NavigationItem.configurations:
         // Adicionar caminho para a Pag. Configurações
         return const ConfigurationPage();
@@ -40,7 +40,7 @@ class _NavigatorPagesState extends State<NavigatorPages> {
       case NavigationItem.rateUs:
         return const RateOurApp();
       case NavigationItem.contactUs:
-        return CalendarPage();
+        return const HomePage();
     }
   }
 }

@@ -3,6 +3,9 @@ import 'package:habits_now_app/presenter/core/colors.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/navigator_pages.dart';
 import 'package:habits_now_app/presenter/widgets/customImgCont.dart';
 
+import '../../widgets/custom_top_bar.dart';
+import '../sidebar/navigation_drawer.dart';
+
 class TaskPage extends StatefulWidget {
   const TaskPage({Key? key}) : super(key: key);
 
@@ -27,6 +30,8 @@ class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CustomTopBar(title: 'Tarefas'),
+      drawer: const NavigationDrawer(),
       backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       body: Column(
         children: [
@@ -77,6 +82,12 @@ class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.iconActivePage,
+        child: Icon(Icons.add),
+        onPressed: () => print('Fui clicado'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

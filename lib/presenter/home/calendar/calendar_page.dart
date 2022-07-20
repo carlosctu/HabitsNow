@@ -1,12 +1,14 @@
 import 'dart:collection';
+
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:table_calendar/table_calendar.dart';
 import '../../core/colors.dart';
 import '../../widgets/custom_top_bar.dart';
+import 'package:table_calendar/table_calendar.dart';
+
 import '../bottombar/bottom_nav_bar.dart';
+import '../home_page.dart';
 import '../sidebar/navigation_drawer.dart';
 import 'events.dart';
 
@@ -20,13 +22,6 @@ class CalendarPage extends StatefulWidget {
 }
 
 class _CalendarPageState extends State<CalendarPage> {
-  @override
-  void initState() {
-    super.initState();
-    diaFocado = "Hoje";
-    initializeDateFormatting();
-  }
-
   static String diaFocado = "";
   static CalendarFormat formato = CalendarFormat.week;
   Color corIconeAgenda = AppColors.iconDisablePage;
@@ -76,8 +71,16 @@ class _CalendarPageState extends State<CalendarPage> {
   }
 
   @override
+  void initState() {
+    diaFocado = "Hoje";
+    initializeDateFormatting();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       appBar: CustomTopBar(
         title: diaFocado,
         simbol: IconButton(
@@ -99,9 +102,9 @@ class _CalendarPageState extends State<CalendarPage> {
           ),
         ),
       ),
-      backgroundColor: AppColors.backgroundPage,
+      // backgroundColor: AppColors.backgroundPage,
       drawer: const NavigationDrawer(),
-      bottomNavigationBar: const CustomBottomBar(),
+      // bottomNavigationBar: const CustomBottomBar(),
       body: Column(
         children: [
           TableCalendar<Event>(
@@ -182,7 +185,7 @@ class _CalendarPageState extends State<CalendarPage> {
                         onTap: () => Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>
-                                CalendarPage(), // Adicionar caminho para a Pag. Tarefas ou Hábitos
+                                const HomePage(), // Adicionar caminho para a Pag. Tarefas ou Hábitos
                           ),
                         ),
                         title: Text(
@@ -198,6 +201,12 @@ class _CalendarPageState extends State<CalendarPage> {
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.iconActivePage,
+        child: Icon(Icons.add),
+        onPressed: () => print('Fui clicado'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

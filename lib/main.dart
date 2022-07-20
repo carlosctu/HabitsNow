@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'presenter/core/colors.dart';
+import 'presenter/home/sidebar/widgets/alex_box_rateourapp.dart';
+
 import 'presenter/home/calendar/calendar_page.dart';
+import 'presenter/home/home_page.dart';
 import 'package:provider/provider.dart';
+
+import 'presenter/home/sidebar/widgets/alert_box_bepremium.dart';
 import 'presenter/home/sidebar/widgets/navigation_item.dart';
 import 'presenter/home/sidebar/widgets/navigation_provider.dart';
 
@@ -36,22 +41,22 @@ class _MainPageState extends State<MainPage> {
 
     switch (navigationItem) {
       case NavigationItem.home:
-        return CalendarPage();
+        return HomePage();
       case NavigationItem.categories:
         // Adicionar caminho para a Pag. Categorias
-        return CalendarPage();
+        return HomePage();
       case NavigationItem.customize:
         // Adicionar caminho para a Pag. Personalizar
-        return CalendarPage();
+        return const HomePage();
       case NavigationItem.configurations:
         // Adicionar caminho para a Pag. Configurações
-        return CalendarPage();
+        return const HomePage();
       case NavigationItem.becomePremium:
-        return CalendarPage();
+        return const BePremium();
       case NavigationItem.rateUs:
-        return CalendarPage();
+        return const RateOurApp();
       case NavigationItem.contactUs:
-        return CalendarPage();
+        return const HomePage();
     }
   }
 }
