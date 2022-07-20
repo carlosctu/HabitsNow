@@ -11,7 +11,7 @@ class CustomBottomBar extends StatefulWidget {
 }
 
 class _CustomBottomBarState extends State<CustomBottomBar> {
-  int _selectedIndex = 0; //setando o index inicial do app
+  int selectedIndex = 0; //setando o index inicial do app
   static List<Widget> _appPages = [
     CalendarPage(),
     CalendarPage(),
@@ -22,7 +22,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
   void _onitemTapped(int index) {
     setState(
       () {
-        _selectedIndex = index;
+        selectedIndex = index;
       },
     );
   } //função pra trocar de página
@@ -62,7 +62,7 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
           label: 'Categorias',
         ),
       ],
-      currentIndex: _selectedIndex,
+      currentIndex: selectedIndex,
       selectedItemColor: AppColors.iconActivePage,
       onTap: _onitemTapped,
     );

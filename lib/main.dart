@@ -47,16 +47,16 @@ class _MainPageState extends State<MainPage> {
         return HomePage();
       case NavigationItem.customize:
         // Adicionar caminho para a Pag. Personalizar
-        return const HomePage();
+        return HomePage();
       case NavigationItem.configurations:
         // Adicionar caminho para a Pag. Configurações
-        return const HomePage();
+        return HomePage();
       case NavigationItem.becomePremium:
         return const BePremium();
       case NavigationItem.rateUs:
         return const RateOurApp();
       case NavigationItem.contactUs:
-        return const HomePage();
+        return HomePage();
     }
   }
 }
