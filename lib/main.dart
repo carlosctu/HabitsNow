@@ -19,7 +19,6 @@ void main() {
       debugShowCheckedModeBanner: false,
       title: "Main Page",
       home: const MainPage(),
-      
     ),
   ));
 }
@@ -35,17 +34,17 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) => buildPages();
-  
+
   Widget buildPages() {
     final provider = Provider.of<NavigationProvider>(context);
     final navigationItem = provider.navigationItem;
 
     switch (navigationItem) {
       case NavigationItem.home:
-        return CalendarPage();
+        return HomePage();
       case NavigationItem.categories:
         // Adicionar caminho para a Pag. Categorias
-        return CalendarPage();
+        return HomePage();
       case NavigationItem.customize:
         // Adicionar caminho para a Pag. Personalizar
         return const HomePage();

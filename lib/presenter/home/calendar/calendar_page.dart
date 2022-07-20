@@ -61,8 +61,9 @@ class _CalendarPageState extends State<CalendarPage> {
         } else {
           _selectedDays.add(selectedDay);
         }
-        _CalendarPageState.diaFocado = //DateFormat('EEEEE',"pt_BR").format(selectedDay);
-        "${selectedDay.day} de ${DateFormat('MMMM',"pt_BR").format(selectedDay)} de ${selectedDay.year}";
+        _CalendarPageState
+                .diaFocado = //DateFormat('EEEEE',"pt_BR").format(selectedDay);
+            "${selectedDay.day} de ${DateFormat('MMMM', "pt_BR").format(selectedDay)} de ${selectedDay.year}";
       },
     );
 
@@ -79,6 +80,7 @@ class _CalendarPageState extends State<CalendarPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 0, 0, 0),
       appBar: CustomTopBar(
         title: diaFocado,
         simbol: IconButton(
@@ -100,105 +102,111 @@ class _CalendarPageState extends State<CalendarPage> {
           ),
         ),
       ),
-      backgroundColor: AppColors.backgroundPage,
+      // backgroundColor: AppColors.backgroundPage,
       drawer: const NavigationDrawer(),
-      bottomNavigationBar: const CustomBottomBar(),
+      // bottomNavigationBar: const CustomBottomBar(),
       body: Column(
-      children: [
-        TableCalendar<Event>(
-          calendarStyle: const CalendarStyle(
-            holidayTextStyle: TextStyle(
-              color: AppColors.iconDisablePage,
+        children: [
+          TableCalendar<Event>(
+            calendarStyle: const CalendarStyle(
+              holidayTextStyle: TextStyle(
+                color: AppColors.iconDisablePage,
+              ),
+              weekendTextStyle: TextStyle(
+                color: AppColors.iconActivePage,
+              ),
+              defaultTextStyle: TextStyle(
+                color: AppColors.iconDisablePage,
+              ),
+              todayTextStyle: TextStyle(
+                color: AppColors.iconDisablePage,
+              ),
+              selectedTextStyle: TextStyle(
+                color: AppColors.topBar,
+              ),
+              outsideTextStyle: TextStyle(
+                color: Color.fromARGB(255, 36, 36, 36),
+              ),
+              selectedDecoration:
+                  BoxDecoration(color: AppColors.title, shape: BoxShape.circle),
+              todayDecoration: BoxDecoration(
+                  color: AppColors.backgroundPage, shape: BoxShape.circle),
             ),
-            weekendTextStyle: TextStyle(
-              color: AppColors.iconActivePage,
-            ),
-            defaultTextStyle: TextStyle(
-              color: AppColors.iconDisablePage,
-            ),
-            todayTextStyle: TextStyle(
-              color: AppColors.iconDisablePage,
-            ),
-            selectedTextStyle: TextStyle(
-              color: AppColors.topBar,
-            ),
-            outsideTextStyle: TextStyle(
-              color: Color.fromARGB(255, 36, 36, 36),
-            ),
-            selectedDecoration:
-                BoxDecoration(color: AppColors.title, shape: BoxShape.circle),
-            todayDecoration:
-                BoxDecoration(color: AppColors.backgroundPage, shape: BoxShape.circle),
+            firstDay: kFirstDay,
+            lastDay: kLastDay,
+            focusedDay: _focusedDay,
+            calendarFormat: formato,
+            eventLoader: _getEventsForDay,
+            startingDayOfWeek: StartingDayOfWeek.sunday,
+            selectedDayPredicate: (day) {
+              return _selectedDays.contains(day);
+            },
+            onDaySelected: _onDaySelected,
+            onPageChanged: (focusedDay) {
+              _focusedDay = focusedDay;
+            },
           ),
-          firstDay: kFirstDay,
-          lastDay: kLastDay,
-          focusedDay: _focusedDay,
-          calendarFormat: formato,
-          eventLoader: _getEventsForDay,
-          startingDayOfWeek: StartingDayOfWeek.sunday,
-          selectedDayPredicate: (day) {
-            return _selectedDays.contains(day);
-          },
-          onDaySelected: _onDaySelected,
-          onPageChanged: (focusedDay) {
-            _focusedDay = focusedDay;
-          },
-        ),
-        const SizedBox(
-          height: 25,
-        ),
-        ElevatedButton(
-          style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(AppColors.title)),
-          child: const Text('Clear selection'),
-          onPressed: () {
-            setState(
-              () {
-                _selectedDays.clear();
-                _selectedEvents.value = [];
-                _CalendarPageState.diaFocado = "Hoje";
-              },
-            );
-          },
-        ),
-        const SizedBox(height: 8.0),
-        Expanded(
-          child: ValueListenableBuilder<List<Event>>(
-            valueListenable: _selectedEvents,
-            builder: (context, value, _) {
-              return ListView.builder(
-                itemCount: value.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.symmetric(
-                      horizontal: 12.0,
-                      vertical: 4.0,
-                    ),
-                    decoration: BoxDecoration(
-                      border: Border.all(),
-                      borderRadius: BorderRadius.circular(12.0),
-                      color: AppColors.iconDisablePage,
-                    ),
-                    child: ListTile(
-                      onTap: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              const HomePage(), // Adicionar caminho para a Pag. Tarefas ou Hábitos
-                        ),
-                      ),
-                      title: Text(
-                        '${value[index]}',
-                        style: const TextStyle(color: Colors.black),
-                      ),
-                    ),
-                  );
+          const SizedBox(
+            height: 25,
+          ),
+          ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(AppColors.title)),
+            child: const Text('Clear selection'),
+            onPressed: () {
+              setState(
+                () {
+                  _selectedDays.clear();
+                  _selectedEvents.value = [];
+                  _CalendarPageState.diaFocado = "Hoje";
                 },
               );
             },
           ),
-        ),
-      ],
-    ),
+          const SizedBox(height: 8.0),
+          Expanded(
+            child: ValueListenableBuilder<List<Event>>(
+              valueListenable: _selectedEvents,
+              builder: (context, value, _) {
+                return ListView.builder(
+                  itemCount: value.length,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 12.0,
+                        vertical: 4.0,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(),
+                        borderRadius: BorderRadius.circular(12.0),
+                        color: AppColors.iconDisablePage,
+                      ),
+                      child: ListTile(
+                        onTap: () => Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                const HomePage(), // Adicionar caminho para a Pag. Tarefas ou Hábitos
+                          ),
+                        ),
+                        title: Text(
+                          '${value[index]}',
+                          style: const TextStyle(color: Colors.black),
+                        ),
+                      ),
+                    );
+                  },
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: AppColors.iconActivePage,
+        child: Icon(Icons.add),
+        onPressed: () => print('Fui clicado'),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

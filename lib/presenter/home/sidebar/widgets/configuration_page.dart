@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../widgets/custom_top_bar.dart';
 import '../navigation_drawer.dart';
 
 class ConfigurationPage extends StatelessWidget {
@@ -8,11 +9,8 @@ class ConfigurationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         drawer: const NavigationDrawer(),
-        appBar: AppBar(
-          backgroundColor: Colors.pink,
-          centerTitle: true,
-          title: const Text('Contact Us'),
-        ),
+        appBar: const CustomTopBar(title: 'Contate-nos'),
+        backgroundColor: Color.fromARGB(255, 0, 0, 0),
         body: const Text('Contact Us'),
       );
 }
