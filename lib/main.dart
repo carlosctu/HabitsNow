@@ -4,6 +4,7 @@ import 'package:habits_now_app/presenter/home/task/provider/task_provider.dart';
 import 'package:habits_now_app/presenter/home/task/task.dart';
 import 'package:habits_now_app/presenter/home/task/widgets/task_list_widget.dart';
 import 'presenter/core/colors.dart';
+import 'presenter/home/habits/state/provider/habits_provider.dart';
 import 'presenter/home/sidebar/widgets/alex_box_rateourapp.dart';
 
 import 'presenter/home/calendar/calendar_page.dart';
@@ -23,7 +24,10 @@ void main() {
       ),
       ChangeNotifierProvider<TaskProvider>(
         create: (context) => TaskProvider(),
-      )
+      ),
+      ChangeNotifierProvider<HabitsProvider>(
+        create: (context) => HabitsProvider(),
+      ),
     ],
     child: MaterialApp(
       color: AppColors.backgroundPage,

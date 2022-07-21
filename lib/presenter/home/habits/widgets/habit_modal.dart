@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../state/add_habits_dialog.dart';
+
 class HabitModal extends StatelessWidget {
   const HabitModal({
     Key? key,
@@ -13,7 +15,12 @@ class HabitModal extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(10.0),
           child: MaterialButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () => showDialog(
+              context: context,
+              builder: (context) {
+                return AddHabitsDialog();
+              },
+            ),
             child: Row(
               children: [
                 const CircleAvatar(

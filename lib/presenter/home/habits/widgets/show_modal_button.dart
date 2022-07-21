@@ -12,6 +12,7 @@ class ShowModalButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
+      height: 30,
       onPressed: () {
         showModalBottomSheet<void>(
           backgroundColor: Color.fromARGB(255, 20, 20, 20),
@@ -34,10 +35,12 @@ class ShowModalButton extends StatelessWidget {
         );
       },
       child: const CircleAvatar(
+        radius: 30,
         backgroundColor: Color.fromARGB(255, 158, 13, 59),
         child: Icon(
           Icons.add,
           color: Colors.white,
+          size: 40,
         ),
       ),
     );

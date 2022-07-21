@@ -43,6 +43,7 @@ class _HomePageState extends State<HomePage> {
       floatingActionButton: ShowModalButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         unselectedItemColor: AppColors.iconDisablePage,
         showUnselectedLabels: true,
         items: const [
