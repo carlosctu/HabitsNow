@@ -1,6 +1,10 @@
+
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
+import '../../calendar/calendar_page.dart';
+import '../../calendar/events.dart';
 import '../model/task_model.dart';
 import '../provider/task_provider.dart';
 import 'task_form_widget.dart';
@@ -49,6 +53,16 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
   void saveTask() {
     final isValid = _formKey.currentState!.validate();
 
+    DateTime tasksDate = DateFormat.yMd("pt_BR").parseUTC(calendarTime);
+
+      Event eventin = Event("Tarefa: $title");
+
+      if (kEvents[tasksDate] != null) {
+        kEvents[tasksDate]!.add(eventin);
+      } else {
+        kEvents[tasksDate] = [eventin];
+      }
+
     if (!isValid) {
       return;
     } else {
@@ -57,7 +71,8 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
           title: title,
           description: description,
           createdTime: DateTime.now(),
-          calendar: calendarTime);
+          calendar: calendarTime,
+          evento: eventin);
 
       final provider = Provider.of<TaskProvider>(context, listen: false);
       provider.addTask(task);

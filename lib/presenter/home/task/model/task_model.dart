@@ -1,4 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+import '../../calendar/events.dart';
+
 class TaskField {
   static const createdTime = 'createdTime';
 }
@@ -10,6 +11,7 @@ class Task {
   String title;
   String description;
   bool isDone;
+  Event? evento;
   Task({
     required this.createdTime,
     required this.title,
@@ -17,5 +19,6 @@ class Task {
     this.id = '',
     this.description = '',
     this.isDone = false,
+    this.evento
   });
 }

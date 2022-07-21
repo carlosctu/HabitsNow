@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:habits_now_app/presenter/home/calendar/events.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 import '../../../core/colors.dart';
 import '../../../core/utils.dart';
@@ -25,7 +27,9 @@ class HabitsWidget extends StatelessWidget {
             IconSlideAction(
               color: Colors.red,
               caption: 'Deletar',
-              onTap: () => deleteTask(context, habits),
+              onTap: () {
+                deleteTask(context, habits);
+              },
               icon: Icons.delete,
             )
           ],
@@ -88,8 +92,12 @@ class HabitsWidget extends StatelessWidget {
   }
 
   void deleteTask(BuildContext context, Habits task) {
+    DateTime habitsDate = DateFormat.yMd("pt_BR").parseUTC(task.calendar);
+    kEvents[habitsDate]!.remove(task.evento);
+
     final provider = Provider.of<HabitsProvider>(context, listen: false);
-    provider.removeHabits(habits);
+
+    provider.removeHabits(task);
 
     Utils.showSnackBar(context, 'Hábito deletado!');
   }

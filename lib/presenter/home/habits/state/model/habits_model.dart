@@ -1,3 +1,5 @@
+import '../../../calendar/events.dart';
+
 class HabitsField {
   static const createdTime = 'createdTime';
 }
@@ -9,6 +11,7 @@ class Habits {
   String title;
   String description;
   bool isDone;
+  Event? evento;
   Habits({
     required this.createdTime,
     required this.title,
@@ -16,5 +19,6 @@ class Habits {
     this.id = '',
     this.description = '',
     this.isDone = false,
+    this.evento
   });
 }

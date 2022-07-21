@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:intl/intl.dart';
 import '../../../core/colors.dart';
+import '../../calendar/events.dart';
 import '../provider/task_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +27,9 @@ class TaskWidget extends StatelessWidget {
             IconSlideAction(
               color: Colors.red,
               caption: 'Deletar',
-              onTap: () => deleteTask(context, task),
+              onTap: () {
+                deleteTask(context, task);
+              },
               icon: Icons.delete,
             )
           ],
@@ -88,7 +92,11 @@ class TaskWidget extends StatelessWidget {
   }
 
   void deleteTask(BuildContext context, Task task) {
+    DateTime habitsDate = DateFormat.yMd("pt_BR").parseUTC(task.calendar);
+    kEvents[habitsDate]!.remove(task.evento);
+
     final provider = Provider.of<TaskProvider>(context, listen: false);
+
     provider.removeTask(task);
 
     Utils.showSnackBar(context, 'Tarefa deletada!');
