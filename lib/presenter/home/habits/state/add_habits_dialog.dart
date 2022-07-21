@@ -16,6 +16,7 @@ class _AddHabitsDialogState extends State<AddHabitsDialog> {
   final _formKey = GlobalKey<FormState>();
   String title = '';
   String description = '';
+  String calendarTime = '';
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,8 @@ class _AddHabitsDialogState extends State<AddHabitsDialog> {
               onTitleChanged: (title) => setState(() => this.title = title),
               onDescriptionChanged: (description) =>
                   setState(() => this.description = description),
+              onCalendarChanged: (calendarTime) =>
+                  setState(() => this.calendarTime = calendarTime),
               onSaveTask: saveHabits,
             )
           ],
@@ -50,11 +53,11 @@ class _AddHabitsDialogState extends State<AddHabitsDialog> {
       return;
     } else {
       final habits = Habits(
-        id: DateTime.now().toString(),
-        title: title,
-        description: description,
-        createdTime: DateTime.now(),
-      );
+          id: DateTime.now().toString(),
+          title: title,
+          description: description,
+          createdTime: DateTime.now(),
+          calendar: calendarTime);
 
       final provider = Provider.of<HabitsProvider>(context, listen: false);
       provider.addHabits(habits);

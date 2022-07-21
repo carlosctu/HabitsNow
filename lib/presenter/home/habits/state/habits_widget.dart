@@ -68,7 +68,17 @@ class HabitsWidget extends StatelessWidget {
                         height: 1.5,
                       ),
                     ),
-                  )
+                  ),
+                Container(
+                  margin: const EdgeInsets.only(top: 4),
+                  child: Text(
+                    habits.calendar,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      height: 1.5,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

@@ -4,6 +4,7 @@ class HabitsField {
 
 class Habits {
   DateTime createdTime;
+  String calendar;
   String id;
   String title;
   String description;
@@ -11,6 +12,7 @@ class Habits {
   Habits({
     required this.createdTime,
     required this.title,
+    this.calendar = '',
     this.id = '',
     this.description = '',
     this.isDone = false,
