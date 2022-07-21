@@ -1,4 +1,6 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 
 class TaskFormWidget extends StatelessWidget {
@@ -70,6 +72,10 @@ class TaskFormWidget extends StatelessWidget {
       );
 
   Widget buildCalendar() => TextFormField(
+        inputFormatters: [
+          FilteringTextInputFormatter.digitsOnly,
+          DataInputFormatter()
+        ],
         initialValue: calendar,
         onChanged: onCalendarChanged,
         decoration: const InputDecoration(
