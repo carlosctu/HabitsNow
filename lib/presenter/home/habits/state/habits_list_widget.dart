@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../calendar/events.dart';
 import 'habits_widget.dart';
 import 'provider/habits_provider.dart';
 
@@ -36,8 +35,8 @@ class HabitsListWidget extends StatelessWidget {
             ],
           )
         : ListView.separated(
-            physics: BouncingScrollPhysics(),
-            padding: EdgeInsets.all(16),
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(16),
             separatorBuilder: (context, index) => Container(
               height: 8,
             ),

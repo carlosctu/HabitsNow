@@ -8,7 +8,7 @@ import 'model/habits_model.dart';
 import 'provider/habits_provider.dart';
 
 class AddHabitsDialog extends StatefulWidget {
-  AddHabitsDialog({Key? key}) : super(key: key);
+  const AddHabitsDialog({Key? key}) : super(key: key);
 
   @override
   State<AddHabitsDialog> createState() => _AddHabitsDialogState();
@@ -53,13 +53,13 @@ class _AddHabitsDialogState extends State<AddHabitsDialog> {
 
     DateTime habitsDate = DateFormat.yMd("pt_BR").parseUTC(calendarTime);
 
-      Event eventin = Event("Hábito: $title");
-          
-      if (kEvents[habitsDate] != null) {
-        kEvents[habitsDate]!.add(eventin);
-      } else {
-        kEvents[habitsDate] = [eventin];
-      }
+    Event eventin = Event("Hábito: $title");
+
+    if (kEvents[habitsDate] != null) {
+      kEvents[habitsDate]!.add(eventin);
+    } else {
+      kEvents[habitsDate] = [eventin];
+    }
 
     if (!isValid) {
       return;
@@ -71,7 +71,6 @@ class _AddHabitsDialogState extends State<AddHabitsDialog> {
           createdTime: DateTime.now(),
           calendar: calendarTime,
           evento: eventin);
-
 
       final provider = Provider.of<HabitsProvider>(context, listen: false);
       provider.addHabits(habits);

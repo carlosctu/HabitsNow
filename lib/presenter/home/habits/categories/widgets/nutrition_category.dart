@@ -23,7 +23,8 @@ class NutritionCategory extends StatelessWidget {
                   Icons.restaurant_menu_rounded,
                   size: 50,
                   color: Color.fromARGB(255, 218, 195, 25),
-                )),
+                ),
+                ),
             const Text(
               'Saúde',
               overflow: TextOverflow.ellipsis,
@@ -41,7 +42,8 @@ class NutritionCategory extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             )
-          ]),
+          ],
+          ),
         ],
       ),
     );

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../task/task.dart';
 import '../../task/widgets/add_task_dialog.dart';
 
 class TaskModal extends StatelessWidget {
@@ -19,7 +18,7 @@ class TaskModal extends StatelessWidget {
             onPressed: () => showDialog(
               context: context,
               builder: (context) {
-                return AddTaskDialog();
+                return const AddTaskDialog();
               },
             ),
             child: Row(

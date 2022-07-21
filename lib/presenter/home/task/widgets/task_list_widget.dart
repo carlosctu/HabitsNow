@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'task_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/task_provider.dart';
+import 'task_widget.dart';
 
 class TaskListWidget extends StatelessWidget {
   const TaskListWidget({Key? key}) : super(key: key);

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import '../../core/colors.dart';
-import 'widgets/navigation_item.dart';
-import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../core/colors.dart';
 import 'widgets/alert_box_bepremium.dart';
 import 'widgets/alex_box_rateourapp.dart';
 import 'widgets/header_sidebar.dart';
+import 'widgets/navigation_item.dart';
 import 'widgets/sidebar_item_builder.dart';
 
 class NavigationDrawer extends StatefulWidget {
@@ -78,38 +78,46 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                     height: 30,
                     color: Colors.white70,
                   ),
-                  buildSideBarItem(context,
-                      item: NavigationItem.becomePremium,
-                      text: 'Obtenha Premium',
-                      icon: Icons.verified_outlined, onClicked: () {
-                    BePremium alert = const BePremium();
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return alert;
-                      },
-                    );
-                  }),
-                  buildSideBarItem(context,
-                      item: NavigationItem.rateUs,
-                      text: 'Avalie o aplicativo',
-                      icon: Icons.rate_review,
-                      // ignore: avoid_print
-                      onClicked: () {
-                    RateOurApp alert = const RateOurApp();
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return alert;
-                      },
-                    );
-                  }),
-                  buildSideBarItem(context,
-                      item: NavigationItem.contactUs,
-                      text: 'Contate-nos',
-                      icon: Icons.report_outlined, onClicked: () {
-                    _openWhatsAppChat();
-                  }),
+                  buildSideBarItem(
+                    context,
+                    item: NavigationItem.becomePremium,
+                    text: 'Obtenha Premium',
+                    icon: Icons.verified_outlined,
+                    onClicked: () {
+                      BePremium alert = const BePremium();
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return alert;
+                        },
+                      );
+                    },
+                  ),
+                  buildSideBarItem(
+                    context,
+                    item: NavigationItem.rateUs,
+                    text: 'Avalie o aplicativo',
+                    icon: Icons.rate_review,
+                    // ignore: avoid_print
+                    onClicked: () {
+                      RateOurApp alert = const RateOurApp();
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return alert;
+                        },
+                      );
+                    },
+                  ),
+                  buildSideBarItem(
+                    context,
+                    item: NavigationItem.contactUs,
+                    text: 'Contate-nos',
+                    icon: Icons.report_outlined,
+                    onClicked: () {
+                      _openWhatsAppChat();
+                    },
+                  ),
                 ],
               ),
             ],

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'widgets/show_modal_button.dart';
 import '../../widgets/custom_top_bar.dart';
 
 import '../../core/colors.dart';
-import '../../widgets/customImgCont.dart';
-import '../../widgets/custom_top_bar.dart';
+import '../../widgets/custom_img_cont.dart';
 import '../sidebar/navigation_drawer.dart';
 import 'state/habits_list_widget.dart';
 
@@ -41,7 +39,6 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
                 controller: _colorController,
                 indicatorColor: AppColors.iconActivePage,
                 labelColor: Colors.white,
-                // unselectedLabelColor: Colors.black,
                 tabs: const [
                   Tab(
                     child: Text(
@@ -64,7 +61,7 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
               const SizedBox(
                 height: 30,
               ),
-              Center(
+              const Center(
                   child: CustomImgCont(
                 assetPath: 'assets/img/habits.jpg',
               )),
@@ -75,17 +72,5 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
             ],
           ),
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   backgroundColor: AppColors.iconActivePage,
-        //   child: Icon(Icons.add),
-        //   onPressed: () => showDialog(
-        //     context: context,
-        //     builder: (context) {
-        //       return AddTaskDialog();
-        //     },
-        //   ),
-        // ),
-        // floatingActionButtonLocation:
-        //     FloatingActionButtonLocation.centerDocked,
       );
 }

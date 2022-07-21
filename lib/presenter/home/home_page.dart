@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/habits/categories/category_page.dart';
-import 'package:habits_now_app/presenter/home/habits/widgets/show_modal_button.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/configuration_page.dart';
-import 'package:habits_now_app/presenter/home/task/task.dart';
+import 'habits/categories/category_page.dart';
 import 'habits/widgets/show_modal_button.dart';
-import 'sidebar/widgets/configuration_page.dart';
 import 'task/task.dart';
 import '../core/colors.dart';
 import 'calendar/calendar_page.dart';
 import 'habits/habits_page.dart';
 import 'sidebar/navigation_drawer.dart';
-import 'sidebar/widgets/alert_box_bepremium.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -21,13 +16,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   static Widget? calendar;
-  static int selectedIndex = 0; //setando o index inicial do app
+  static int selectedIndex = 0;
   static final List<Widget> _appPages = [
     calendar!,
-    HabitsPage(),
-    TaskPage(),
-    CategoryPage(),
-  ]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
+    const HabitsPage(),
+    const TaskPage(),
+    const CategoryPage(),
+  ];
 
   @override
   void initState() {
@@ -36,28 +31,29 @@ class _HomePageState extends State<HomePage> {
   }
 
   void callback() {
-    setState(() {
-      selectedIndex = 2;
-    });
+    setState(
+      () {
+        selectedIndex = 2;
+      },
+    );
   }
 
   void _onitemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  } //função pra trocar de página
+    setState(
+      () {
+        selectedIndex = index;
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text("Home Page"),
-      // ),
       body: Center(
         child: _appPages.elementAt(selectedIndex),
       ),
       drawer: const NavigationDrawer(),
-      floatingActionButton: ShowModalButton(),
+      floatingActionButton: const ShowModalButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,

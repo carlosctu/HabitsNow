@@ -25,13 +25,13 @@ class _NavigatorPagesState extends State<NavigatorPages> {
 
     switch (navigationItem) {
       case NavigationItem.home:
-        return HomePage();
+        return const HomePage();
       case NavigationItem.categories:
         // Adicionar caminho para a Pag. Categorias
-        return HomePage();
+        return const HomePage();
       case NavigationItem.customize:
         // Adicionar caminho para a Pag. Personalizar
-        return HomePage();
+        return const HomePage();
       case NavigationItem.configurations:
         // Adicionar caminho para a Pag. Configurações
         return const CategoryPage();
@@ -40,7 +40,7 @@ class _NavigatorPagesState extends State<NavigatorPages> {
       case NavigationItem.rateUs:
         return const RateOurApp();
       case NavigationItem.contactUs:
-        return HomePage();
+        return const HomePage();
     }
   }
 }

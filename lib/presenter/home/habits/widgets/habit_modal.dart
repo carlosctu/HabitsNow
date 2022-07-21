@@ -18,7 +18,7 @@ class HabitModal extends StatelessWidget {
             onPressed: () => showDialog(
               context: context,
               builder: (context) {
-                return AddHabitsDialog();
+                return const AddHabitsDialog();
               },
             ),
             child: Row(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomImgCont extends StatelessWidget {
-  String assetPath;
-  CustomImgCont({
+  final String assetPath;
+  const CustomImgCont({
     Key? key,
     this.assetPath = 'assets/img/task.jpg',
   }) : super(key: key);

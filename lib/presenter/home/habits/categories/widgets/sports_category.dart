@@ -11,8 +11,9 @@ class SportsCategory extends StatelessWidget {
       width: 60,
       child: Column(
         children: [
-          Column(children: [
-            Container(
+          Column(
+            children: [
+              Container(
                 width: 60,
                 height: 60,
                 decoration: BoxDecoration(
@@ -23,25 +24,27 @@ class SportsCategory extends StatelessWidget {
                   Icons.directions_bike_rounded,
                   size: 40,
                   color: Color.fromARGB(255, 53, 53, 222),
-                )),
-            const Text(
-              'Esportes',
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-            const Text(
-              '0 entradas',
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 11,
-                color: Color.fromARGB(255, 128, 128, 128),
-                fontWeight: FontWeight.w600,
+              const Text(
+                'Esportes',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            )
-          ]),
+              const Text(
+                '0 entradas',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 11,
+                  color: Color.fromARGB(255, 128, 128, 128),
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );

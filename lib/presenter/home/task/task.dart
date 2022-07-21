@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
 import '../../core/colors.dart';
-import '../bottombar/bottom_nav_bar.dart';
-import '../sidebar/widgets/navigator_pages.dart';
-import 'provider/task_provider.dart';
-import 'widgets/add_task_dialog.dart';
 import 'widgets/task_list_widget.dart';
-import '../../widgets/customImgCont.dart';
-import 'package:provider/provider.dart';
+import '../../widgets/custom_img_cont.dart';
 
 import '../../widgets/custom_top_bar.dart';
 import '../sidebar/navigation_drawer.dart';
-import 'model/task_model.dart';
-import 'widgets/task_widget.dart';
 
 class TaskPage extends StatefulWidget {
   const TaskPage({Key? key}) : super(key: key);
@@ -46,7 +39,6 @@ class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
                 controller: _colorController,
                 indicatorColor: AppColors.iconActivePage,
                 labelColor: Colors.white,
-                // unselectedLabelColor: Colors.black,
                 tabs: const [
                   Tab(
                     child: Text(
@@ -69,7 +61,7 @@ class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
               const SizedBox(
                 height: 30,
               ),
-              Center(child: CustomImgCont()),
+              const Center(child: CustomImgCont()),
               const SizedBox(
                 height: 10,
               ),
@@ -77,17 +69,5 @@ class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
             ],
           ),
         ),
-        // floatingActionButton: FloatingActionButton(
-        //   backgroundColor: AppColors.iconActivePage,
-        //   child: Icon(Icons.add),
-        //   onPressed: () => showDialog(
-        //     context: context,
-        //     builder: (context) {
-        //       return AddTaskDialog();
-        //     },
-        //   ),
-        // ),
-        // floatingActionButtonLocation:
-        //     FloatingActionButtonLocation.centerDocked,
       );
 }

@@ -21,7 +21,7 @@ class TaskWidget extends StatelessWidget {
   Widget build(BuildContext context) => ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: Slidable(
-          actionPane: SlidableDrawerActionPane(),
+          actionPane: const SlidableDrawerActionPane(),
           key: Key(task.id),
           actions: [
             IconSlideAction(
@@ -33,14 +33,6 @@ class TaskWidget extends StatelessWidget {
               icon: Icons.delete,
             )
           ],
-          // secondaryActions: [
-          //   IconSlideAction(
-          //     color: Colors.red,
-          //     caption: 'Deletar',
-          //     onTap: () {},
-          //     icon: Icons.delete,
-          //   )
-          // ],
           child: buildTask(context),
         ),
       );
@@ -48,7 +40,7 @@ class TaskWidget extends StatelessWidget {
   Widget buildTask(BuildContext context) {
     return Container(
       color: AppColors.title,
-      padding: EdgeInsets.all(5),
+      padding: const EdgeInsets.all(5),
       child: Row(
         children: [
           Expanded(

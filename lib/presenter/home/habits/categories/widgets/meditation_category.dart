@@ -11,8 +11,9 @@ class MeditationCategory extends StatelessWidget {
       width: 60,
       child: Column(
         children: [
-          Column(children: [
-            Container(
+          Column(
+            children: [
+              Container(
                 width: 60,
                 height: 60,
                 decoration: BoxDecoration(
@@ -23,25 +24,27 @@ class MeditationCategory extends StatelessWidget {
                   Icons.self_improvement_rounded,
                   size: 50,
                   color: Color.fromARGB(255, 148, 40, 139),
-                )),
-            const Text(
-              'Meditação',
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
+                ),
               ),
-            ),
-            const Text(
-              '0 entradas',
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 11,
-                color: Color.fromARGB(255, 128, 128, 128),
-                fontWeight: FontWeight.w600,
+              const Text(
+                'Meditação',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
+                ),
               ),
-            )
-          ]),
+              const Text(
+                '0 entradas',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 11,
+                  color: Color.fromARGB(255, 128, 128, 128),
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );

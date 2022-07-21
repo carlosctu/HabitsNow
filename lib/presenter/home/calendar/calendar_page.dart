@@ -63,7 +63,7 @@ class CalendarPageState extends State<CalendarPage> {
         }
         CalendarPageState.diaSelecionado = selectedDay;
         CalendarPageState
-                .diaFocado = //DateFormat('EEEEE',"pt_BR").format(selectedDay);
+                .diaFocado = 
             "${selectedDay.day} de ${DateFormat('MMMM', "pt_BR").format(selectedDay)} de ${selectedDay.year}";
       },
     );
@@ -103,9 +103,7 @@ class CalendarPageState extends State<CalendarPage> {
           ),
         ),
       ),
-      // backgroundColor: AppColors.backgroundPage,
       drawer: const NavigationDrawer(),
-      // bottomNavigationBar: const CustomBottomBar(),
       body: Column(
         children: [
           TableCalendar<Event>(
@@ -199,12 +197,6 @@ class CalendarPageState extends State<CalendarPage> {
           ),
         ],
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   backgroundColor: AppColors.iconActivePage,
-      //   child: Icon(Icons.add),
-      //   onPressed: () => print('Fui clicado'),
-      // ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }
