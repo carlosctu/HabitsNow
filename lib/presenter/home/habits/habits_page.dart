@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/habits/widgets/show_modal_button.dart';
-import 'package:habits_now_app/presenter/widgets/custom_top_bar.dart';
+import 'widgets/show_modal_button.dart';
+import '../../widgets/custom_top_bar.dart';
 
 import '../../core/colors.dart';
 import '../../widgets/customImgCont.dart';

@@ -3,10 +3,10 @@ import 'dart:collection';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import '../../core/colors.dart';
-import '../../widgets/custom_top_bar.dart';
 import 'package:table_calendar/table_calendar.dart';
 
+import '../../core/colors.dart';
+import '../../widgets/custom_top_bar.dart';
 import '../sidebar/navigation_drawer.dart';
 import 'events.dart';
 
@@ -26,7 +26,6 @@ class _CalendarPageState extends State<CalendarPage> {
   Color corIconeAgenda = AppColors.iconDisablePage;
   int contButtonAgenda = 0;
   static DateTime? diaSelecionado = DateTime.now();
-  
 
   final ValueNotifier<List<Event>> _selectedEvents = ValueNotifier([]);
 
@@ -156,7 +155,7 @@ class _CalendarPageState extends State<CalendarPage> {
                 backgroundColor: MaterialStateProperty.all(AppColors.title)),
             child: const Text('Clear selection'),
             onPressed: () {
-              if(kEvents[diaSelecionado] != null) {
+              if (kEvents[diaSelecionado] != null) {
                 kEvents[diaSelecionado]!.add(const Event("ola"));
               }
               setState(
@@ -187,8 +186,9 @@ class _CalendarPageState extends State<CalendarPage> {
                         color: AppColors.iconDisablePage,
                       ),
                       child: ListTile(
-                        onTap: 
-                          (){widget.callback!();},
+                        onTap: () {
+                          widget.callback!();
+                        },
                         title: Text(
                           '${value[index]}',
                           style: const TextStyle(color: Colors.black),

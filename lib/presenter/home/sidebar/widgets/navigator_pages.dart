@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../../home_page.dart';
 import 'alert_box_bepremium.dart';
 import 'alex_box_rateourapp.dart';
-import '../../home_page.dart';
 import 'configuration_page.dart';
-import 'package:provider/provider.dart';
 import 'navigation_item.dart';
 import 'navigation_provider.dart';
 

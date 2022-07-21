@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/task/widgets/task_widget.dart';
+import 'task_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../provider/task_provider.dart';
@@ -35,8 +35,8 @@ class TaskListWidget extends StatelessWidget {
             ],
           )
         : ListView.separated(
-            physics: BouncingScrollPhysics(),
-            padding: EdgeInsets.all(16),
+            physics: const BouncingScrollPhysics(),
+            padding: const EdgeInsets.all(16),
             separatorBuilder: (context, index) => Container(
               height: 8,
             ),

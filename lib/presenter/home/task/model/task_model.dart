@@ -5,6 +5,7 @@ class TaskField {
 
 class Task {
   DateTime createdTime;
+  String calendar;
   String id;
   String title;
   String description;
@@ -12,6 +13,7 @@ class Task {
   Task({
     required this.createdTime,
     required this.title,
+    this.calendar = '',
     this.id = '',
     this.description = '',
     this.isDone = false,

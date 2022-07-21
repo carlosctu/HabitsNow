@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/core/colors.dart';
-import 'package:habits_now_app/presenter/home/bottombar/bottom_nav_bar.dart';
-import 'package:habits_now_app/presenter/home/sidebar/widgets/navigator_pages.dart';
-import 'package:habits_now_app/presenter/home/task/provider/task_provider.dart';
-import 'package:habits_now_app/presenter/home/task/widgets/add_task_dialog.dart';
-import 'package:habits_now_app/presenter/home/task/widgets/task_list_widget.dart';
-import 'package:habits_now_app/presenter/widgets/customImgCont.dart';
+import '../../core/colors.dart';
+import '../bottombar/bottom_nav_bar.dart';
+import '../sidebar/widgets/navigator_pages.dart';
+import 'provider/task_provider.dart';
+import 'widgets/add_task_dialog.dart';
+import 'widgets/task_list_widget.dart';
+import '../../widgets/customImgCont.dart';
 import 'package:provider/provider.dart';
 
 import '../../widgets/custom_top_bar.dart';
