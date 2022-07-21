@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
-
-// import '../db/notes_database_draft.dart';
 import '../database.dart';
-import '../note.dart';
-import '../widgets/rateus_box.dart';
-import 'notes_page.dart';
+import '../review.dart';
+import 'rate_us_form.dart';
+import '../pages/reviews_page.dart';
 
-class AddEditNotePage extends StatefulWidget {
-  final Note? note;
+class RateUsAlexBox extends StatefulWidget {
+  final Review? note;
 
-  const AddEditNotePage({
+  const RateUsAlexBox({
     Key? key,
     this.note,
   }) : super(key: key);
   @override
-  _AddEditNotePageState createState() => _AddEditNotePageState();
+  _RateUsAlexBoxState createState() => _RateUsAlexBoxState();
 }
 
-class _AddEditNotePageState extends State<AddEditNotePage> {
+class _RateUsAlexBoxState extends State<RateUsAlexBox> {
   final _formKey = GlobalKey<FormState>();
   late bool isImportant;
   late int number;
@@ -40,9 +38,9 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        content: Container(
+        content: SizedBox(
           width: MediaQuery.of(context).size.width,
-          height: 150,
+          height: 120,
           child: Wrap(
             children: [
               Column(
@@ -68,7 +66,7 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
                   ),
                   Form(
                     key: _formKey,
-                    child: NoteFormWidget(
+                    child: RateUsForm(
                       isImportant: isImportant,
                       number: number,
                       title: title,
@@ -104,7 +102,7 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
                   style: TextStyle(
                     fontSize: 16.5,
                     fontWeight: FontWeight.bold,
-                    color: Colors.white70
+                    color: Colors.white70,
                   ),
                 ),
               ),
@@ -114,27 +112,6 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
         ],
       );
 
-  // Scaffold(
-  //       appBar: AppBar(
-  //         actions: [buildButton()],
-  //       ),
-  //       body: Form(
-  //         key: _formKey,
-  //         child: NoteFormWidget(
-  //           isImportant: isImportant,
-  //           number: number,
-  //           title: title,
-  //           description: description,
-  //           onChangedImportant: (isImportant) =>
-  //               setState(() => this.isImportant = isImportant),
-  //           onChangedNumber: (number) => setState(() => this.number = number),
-  //           onChangedTitle: (title) => setState(() => this.title = title),
-  //           onChangedDescription: (description) =>
-  //               setState(() => this.description = description),
-  //         ),
-  //       ),
-  //     );
-
   Widget buildButton() {
     final isFormValid = title.isNotEmpty && description.isNotEmpty;
     return SizedBox(
@@ -143,16 +120,16 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
         style: ElevatedButton.styleFrom(
           onPrimary: Colors.white,
           primary: isFormValid
-              ? Color.fromARGB(255, 213, 32, 89)
+              ? const Color.fromARGB(255, 213, 32, 89)
               : const Color.fromARGB(255, 22, 22, 22),
         ),
         onPressed: addOrUpdateNote,
         child: const Text(
-          'Save',
+          'Enviar',
           style: TextStyle(
             fontSize: 16.5,
             fontWeight: FontWeight.bold,
-            color: Colors.white70
+            color: Colors.white70,
           ),
         ),
       ),
@@ -171,8 +148,7 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
         await addNote();
       }
 
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => NotesPage()));
+      Navigator.of(context).pop();
     }
   }
 
@@ -184,11 +160,11 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
       description: description,
     );
 
-    await NotesDatabase.instance.update(note);
+    await ReviewsDatabase.instance.updateReviews(note);
   }
 
   Future addNote() async {
-    final note = Note(
+    final note = Review(
       title: "Anonimo",
       isImportant: true,
       number: number,
@@ -196,6 +172,6 @@ class _AddEditNotePageState extends State<AddEditNotePage> {
       createdTime: DateTime.now(),
     );
 
-    await NotesDatabase.instance.create(note);
+    await ReviewsDatabase.instance.create(note);
   }
 }

@@ -1,6 +1,6 @@
-final String tableNotes = 'notes';
+final String tableReviews = 'notes';
 
-class NoteFields {
+class ReviewsFields {
   static final List<String> values = [
     /// Add all fields
     id, isImportant, number, title, description, time
@@ -14,7 +14,7 @@ class NoteFields {
   static final String time = 'time';
 }
 
-class Note {
+class Review {
   final int? id;
   final bool isImportant;
   final int number;
@@ -22,7 +22,7 @@ class Note {
   final String description;
   final DateTime createdTime;
 
-  const Note({
+  const Review({
     this.id,
     required this.isImportant,
     required this.number,
@@ -31,7 +31,7 @@ class Note {
     required this.createdTime,
   });
 
-  Note copy({
+  Review copy({
     int? id,
     bool? isImportant,
     int? number,
@@ -39,7 +39,7 @@ class Note {
     String? description,
     DateTime? createdTime,
   }) =>
-      Note(
+      Review(
         id: id ?? this.id,
         isImportant: isImportant ?? this.isImportant,
         number: number ?? this.number,
@@ -48,21 +48,21 @@ class Note {
         createdTime: createdTime ?? this.createdTime,
       );
 
-  static Note fromJson(Map<String, Object?> json) => Note(
-        id: json[NoteFields.id] as int?,
-        isImportant: json[NoteFields.isImportant] == 1,
-        number: json[NoteFields.number] as int,
-        title: json[NoteFields.title] as String,
-        description: json[NoteFields.description] as String,
-        createdTime: DateTime.parse(json[NoteFields.time] as String),
+  static Review fromJson(Map<String, Object?> json) => Review(
+        id: json[ReviewsFields.id] as int?,
+        isImportant: json[ReviewsFields.isImportant] == 1,
+        number: json[ReviewsFields.number] as int,
+        title: json[ReviewsFields.title] as String,
+        description: json[ReviewsFields.description] as String,
+        createdTime: DateTime.parse(json[ReviewsFields.time] as String),
       );
 
   Map<String, Object?> toJson() => {
-        NoteFields.id: id,
-        NoteFields.title: title,
-        NoteFields.isImportant: isImportant ? 1 : 0,
-        NoteFields.number: number,
-        NoteFields.description: description,
-        NoteFields.time: createdTime.toIso8601String(),
+        ReviewsFields.id: id,
+        ReviewsFields.title: title,
+        ReviewsFields.isImportant: isImportant ? 1 : 0,
+        ReviewsFields.number: number,
+        ReviewsFields.description: description,
+        ReviewsFields.time: createdTime.toIso8601String(),
       };
 }

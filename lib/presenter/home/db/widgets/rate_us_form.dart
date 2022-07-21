@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class NoteFormWidget extends StatelessWidget {
+class RateUsForm extends StatelessWidget {
   final bool? isImportant;
   final int? number;
   final String? title;
@@ -10,7 +10,7 @@ class NoteFormWidget extends StatelessWidget {
   final ValueChanged<String> onChangedTitle;
   final ValueChanged<String> onChangedDescription;
 
-  const NoteFormWidget({
+  const RateUsForm({
     Key? key,
     this.isImportant = false,
     this.number = 0,
@@ -25,29 +25,11 @@ class NoteFormWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(18),
+          padding: const EdgeInsets.all(10),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              // Row(
-              // children: [
-              // Switch(
-              //   value: isImportant ?? false,
-              //   onChanged: onChangedImportant,
-              // ),
-              // Expanded(
-              //   child: Slider(
-              //     value: (number ?? 0).toDouble(),
-              //     min: 0,
-              //     max: 3,
-              //     divisions: 5,
-              //     onChanged: (number) => onChangedNumber(number.toInt()),
-              //   ),
-              // )
-              // ],
-              // ),
-              // buildTitle(),
-              const SizedBox(height: 32),
+              const SizedBox(height: 28),
               buildDescription(),
               // const SizedBox(height: 8),
             ],
@@ -55,25 +37,7 @@ class NoteFormWidget extends StatelessWidget {
         ),
       );
 
-  // Widget buildTitle() => TextFormField(
-  //       maxLines: 1,
-  //       initialValue: "title",
-  //       style: const TextStyle(
-  //         color: Colors.white70,
-  //         fontSize: 16.5,
-  //       ),
-  //       decoration: const InputDecoration(
-  //         border: InputBorder.none,
-  //         hintText: 'Seu nome',
-  //         hintStyle: TextStyle(color: Colors.white70),
-  //       ),
-  //       validator: (title) =>
-  //           title != null && title.isEmpty ? 'Nome não pode estar vazio' : null,
-  //       onChanged: onChangedTitle,
-  //     );
-
   Widget buildDescription() => TextFormField(
-        // maxLines: 2,
         initialValue: description,
         style: const TextStyle(
           color: Colors.white60,

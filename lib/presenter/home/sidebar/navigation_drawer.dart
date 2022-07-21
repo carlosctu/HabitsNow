@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../core/colors.dart';
-import '../db/pages/note_edit_widget.dart';
+import '../db/pages/reviews_page.dart';
+import '../db/widgets/rate_us_alert_box.dart';
 import 'widgets/navigation_item.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -72,7 +73,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       icon: Icons.category_outlined,
                       onClicked: () {}),
                   Container(
-                    height: 15,
+                    height: 12,
                     decoration: const BoxDecoration(
                       border: Border(
                         bottom: BorderSide(
@@ -83,24 +84,22 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       ),
                     ),
                   ),
-                  buildSideBarItem(context,
-                      item: NavigationItem.customize,
-                      text: 'Personalizar',
-                      icon: Icons.color_lens_outlined,
-                      onClicked: () {}),
-                  buildSideBarItem(context,
-                      item: NavigationItem.configurations,
-                      text: 'Configurações',
-                      icon: Icons.tune_outlined, onClicked: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ConfigurationPage(),
-                      ),
-                    );
-                  }),
+                  buildSideBarItem(
+                    context,
+                    item: NavigationItem.configurations,
+                    text: 'Configurações',
+                    icon: Icons.tune_outlined,
+                    onClicked: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ConfigurationPage(),
+                        ),
+                      );
+                    },
+                  ),
                   Container(
-                    height: 15,
+                    height: 12,
                     decoration: const BoxDecoration(
                       border: Border(
                         bottom: BorderSide(
@@ -111,38 +110,50 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       ),
                     ),
                   ),
-                  buildSideBarItem(context,
-                      item: NavigationItem.becomePremium,
-                      text: 'Obtenha Premium',
-                      icon: Icons.verified_outlined, onClicked: () {
-                    BePremium alert = const BePremium();
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return alert;
-                      },
-                    );
-                  }),
-                  buildSideBarItem(context,
-                      item: NavigationItem.rateUs,
-                      text: 'Avalie o aplicativo',
-                      icon: Icons.rate_review,
-                      // ignore: avoid_print
-                      onClicked: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AddEditNotePage(),
-                      ),
-                    );
-                    // RateOurApp alert = const RateOurApp();
-                    // showDialog(
-                    //   context: context,
-                    //   builder: (BuildContext context) {
-                    //     return alert;
-                    //   },
-                    // );
-                  }),
+                  buildSideBarItem(
+                    context,
+                    item: NavigationItem.becomePremium,
+                    text: 'Obtenha Premium',
+                    icon: Icons.verified_outlined,
+                    onClicked: () {
+                      BePremium alert = const BePremium();
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return alert;
+                        },
+                      );
+                    },
+                  ),
+                  buildSideBarItem(
+                    context,
+                    item: NavigationItem.rateUs,
+                    text: 'Avalie o aplicativo',
+                    icon: Icons.rate_review_outlined,
+                    // ignore: avoid_print
+                    onClicked: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RateUsAlexBox(),
+                        ),
+                      );
+                    },
+                  ),
+                  buildSideBarItem(
+                    context,
+                    item: NavigationItem.customize,
+                    text: 'Reviews',
+                    icon: Icons.reviews_outlined,
+                    onClicked: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ReviewsPage(),
+                        ),
+                      );
+                    },
+                  ),
                   buildSideBarItem(context,
                       item: NavigationItem.contactUs,
                       text: 'Contate-nos',

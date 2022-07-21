@@ -3,21 +3,20 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../calendar/calendar_page.dart';
 import '../database.dart';
-import '../note.dart';
-import '../widgets/note_card_widget.dart';
-import 'note_detail_page.dart';
-import 'note_edit_widget.dart';
+import '../review.dart';
+import '../widgets/review_card_widget.dart';
+import 'edit_delete_review.dart';
 
-class NotesPage extends StatefulWidget {
-  const NotesPage({Key? key}) : super(key: key);
+class ReviewsPage extends StatefulWidget {
+  const ReviewsPage({Key? key}) : super(key: key);
 
   @override
-  _NotesPageState createState() => _NotesPageState();
+  _ReviewsPageState createState() => _ReviewsPageState();
 }
 
-class _NotesPageState extends State<NotesPage> {
+class _ReviewsPageState extends State<ReviewsPage> {
   // Lista de todas nossas notas
-  late List<Note> notes;
+  late List<Review> notes;
   bool isLoading = false;
 
   @override
@@ -29,7 +28,7 @@ class _NotesPageState extends State<NotesPage> {
 
   @override
   void dispose() {
-    NotesDatabase.instance.close();
+    ReviewsDatabase.instance.close();
 
     super.dispose();
   }
@@ -38,7 +37,7 @@ class _NotesPageState extends State<NotesPage> {
     setState(() => isLoading = true);
 
     // Neste método lemos todas os objetos da classe dentro da nossa DB
-    this.notes = await NotesDatabase.instance.readAllNotes();
+    this.notes = await ReviewsDatabase.instance.readAllReviews();
 
     setState(() => isLoading = false);
   }
@@ -46,24 +45,23 @@ class _NotesPageState extends State<NotesPage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.black,
           title: const Text(
-            'Notes',
-            style: TextStyle(fontSize: 24),
-          ),
-          actions: const [
-            Icon(
-              Icons.search,
-              color: Colors.white,
+            'Reviews HabitsNow',
+            style: TextStyle(
+              fontSize: 22,
             ),
-            SizedBox(width: 12)
-          ],
+          ),
           leading: GestureDetector(
-            child: Icon(
+            child: const Icon(
               Icons.arrow_back_ios_new,
             ),
             onTap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => CalendarPage()));
+                MaterialPageRoute(
+                  builder: (context) => CalendarPage(),
+                ),
+              );
             },
           ),
         ),
@@ -77,27 +75,13 @@ class _NotesPageState extends State<NotesPage> {
                     )
                   : buildNotes(),
         ),
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.black,
-          child: const Icon(
-            Icons.add,
-            color: Colors.white,
-          ),
-          onPressed: () async {
-            await Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const AddEditNotePage()),
-            );
-
-            refreshNotes();
-          },
-        ),
       );
 
 // Para mostrar todos os objetos da classe
   Widget buildNotes() => StaggeredGridView.countBuilder(
         padding: const EdgeInsets.all(8),
         itemCount: notes.length,
-        staggeredTileBuilder: (index) => StaggeredTile.fit(2),
+        staggeredTileBuilder: (index) => const StaggeredTile.fit(2),
         crossAxisCount: 4,
         mainAxisSpacing: 4,
         crossAxisSpacing: 4,
@@ -107,13 +91,17 @@ class _NotesPageState extends State<NotesPage> {
           // ao clickar te leva para os dados da classe note
           return GestureDetector(
             onTap: () async {
-              await Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => NoteDetailPage(noteId: note.id!),
-              ));
-
+              await Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => NoteDetailPage(noteId: note.id!),
+                ),
+              );
               refreshNotes();
             },
-            child: NoteCardWidget(note: note, index: index),
+            child: ReviewCardWidget(
+              review: note,
+              index: index,
+            ),
           );
         },
       );

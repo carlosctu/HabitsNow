@@ -3,8 +3,8 @@ import 'package:intl/intl.dart';
 
 // import '../db/notes_database_draft.dart';
 import '../database.dart';
-import '../note.dart';
-import 'note_edit_widget.dart';
+import '../review.dart';
+import '../widgets/rate_us_alert_box.dart';
 
 class NoteDetailPage extends StatefulWidget {
   final int noteId;
@@ -19,7 +19,7 @@ class NoteDetailPage extends StatefulWidget {
 }
 
 class _NoteDetailPageState extends State<NoteDetailPage> {
-  late Note note;
+  late Review note;
   bool isLoading = false;
 
   @override
@@ -32,7 +32,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   Future refreshNote() async {
     setState(() => isLoading = true);
 
-    this.note = await NotesDatabase.instance.readNote(widget.noteId);
+    this.note = await ReviewsDatabase.instance.readNote(widget.noteId);
 
     setState(() => isLoading = false);
   }
@@ -79,7 +79,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
         if (isLoading) return;
 
         await Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => AddEditNotePage(note: note),
+          builder: (context) => RateUsAlexBox(note: note),
         ));
 
         refreshNote();
@@ -88,7 +88,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   Widget deleteButton() => IconButton(
         icon: const Icon(Icons.delete),
         onPressed: () async {
-          await NotesDatabase.instance.delete(widget.noteId);
+          await ReviewsDatabase.instance.delete(widget.noteId);
 
           Navigator.of(context).pop();
         },

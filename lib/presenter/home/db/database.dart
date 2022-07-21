@@ -1,20 +1,19 @@
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-import 'note.dart';
+import 'review.dart';
 
-
-class NotesDatabase {
-  static final NotesDatabase instance = NotesDatabase._init();
+class ReviewsDatabase {
+  static final ReviewsDatabase instance = ReviewsDatabase._init();
 
   static Database? _database;
 
-  NotesDatabase._init();
+  ReviewsDatabase._init();
 
   Future<Database> get database async {
     if (_database != null) return _database!;
 
-    _database = await _initDB('notes.db');
+    _database = await _initDB('reviews.db');
     return _database!;
   }
 
@@ -32,68 +31,59 @@ class NotesDatabase {
     final integerType = 'INTEGER NOT NULL';
 
     await db.execute('''
-CREATE TABLE $tableNotes ( 
-  ${NoteFields.id} $idType, 
-  ${NoteFields.isImportant} $boolType,
-  ${NoteFields.number} $integerType,
-  ${NoteFields.title} $textType,
-  ${NoteFields.description} $textType,
-  ${NoteFields.time} $textType
+CREATE TABLE $tableReviews ( 
+  ${ReviewsFields.id} $idType, 
+  ${ReviewsFields.isImportant} $boolType,
+  ${ReviewsFields.number} $integerType,
+  ${ReviewsFields.title} $textType,
+  ${ReviewsFields.description} $textType,
+  ${ReviewsFields.time} $textType
   )
 ''');
   }
 
-  Future<Note> create(Note note) async {
+  Future<Review> create(Review note) async {
     final db = await instance.database;
-
-    // final json = note.toJson();
-    // final columns =
-    //     '${NoteFields.title}, ${NoteFields.description}, ${NoteFields.time}';
-    // final values =
-    //     '${json[NoteFields.title]}, ${json[NoteFields.description]}, ${json[NoteFields.time]}';
-    // final id = await db
-    //     .rawInsert('INSERT INTO table_name ($columns) VALUES ($values)');
-
-    final id = await db.insert(tableNotes, note.toJson());
+    final id = await db.insert(tableReviews, note.toJson());
     return note.copy(id: id);
   }
 
-  Future<Note> readNote(int id) async {
+  Future<Review> readNote(int id) async {
     final db = await instance.database;
 
     final maps = await db.query(
-      tableNotes,
-      columns: NoteFields.values,
-      where: '${NoteFields.id} = ?',
+      tableReviews,
+      columns: ReviewsFields.values,
+      where: '${ReviewsFields.id} = ?',
       whereArgs: [id],
     );
 
     if (maps.isNotEmpty) {
-      return Note.fromJson(maps.first);
+      return Review.fromJson(maps.first);
     } else {
       throw Exception('ID $id not found');
     }
   }
 
-  Future<List<Note>> readAllNotes() async {
+  Future<List<Review>> readAllReviews() async {
     final db = await instance.database;
 
-    final orderBy = '${NoteFields.time} ASC';
+    final orderBy = '${ReviewsFields.time} ASC';
     // final result =
-    //     await db.rawQuery('SELECT * FROM $tableNotes ORDER BY $orderBy');
+    //     await db.rawQuery('SELECT * FROM $tablereviews ORDER BY $orderBy');
 
-    final result = await db.query(tableNotes, orderBy: orderBy);
+    final result = await db.query(tableReviews, orderBy: orderBy);
 
-    return result.map((json) => Note.fromJson(json)).toList();
+    return result.map((json) => Review.fromJson(json)).toList();
   }
 
-  Future<int> update(Note note) async {
+  Future<int> updateReviews(Review note) async {
     final db = await instance.database;
 
     return db.update(
-      tableNotes,
+      tableReviews,
       note.toJson(),
-      where: '${NoteFields.id} = ?',
+      where: '${ReviewsFields.id} = ?',
       whereArgs: [note.id],
     );
   }
@@ -102,8 +92,8 @@ CREATE TABLE $tableNotes (
     final db = await instance.database;
 
     return await db.delete(
-      tableNotes,
-      where: '${NoteFields.id} = ?',
+      tableReviews,
+      where: '${ReviewsFields.id} = ?',
       whereArgs: [id],
     );
   }

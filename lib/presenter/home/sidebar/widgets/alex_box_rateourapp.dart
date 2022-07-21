@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/db/pages/notes_page.dart';
+import 'package:habits_now_app/presenter/home/db/pages/reviews_page.dart';
 
 import 'configuration_page.dart';
 
@@ -32,7 +32,7 @@ class _RateOurAppState extends State<RateOurApp> {
             ),
           ),
           Container(
-            height: 15,
+            height: 1,
             decoration: const BoxDecoration(
               border: Border(
                 bottom: BorderSide(
@@ -47,7 +47,7 @@ class _RateOurAppState extends State<RateOurApp> {
       ),
       content: SizedBox(
         width: MediaQuery.of(context).size.width,
-        height: 100,
+        height: 160,
         child: Wrap(
           children: [
             Column(
@@ -59,7 +59,7 @@ class _RateOurAppState extends State<RateOurApp> {
                   ),
                 ),
                 const SizedBox(
-                  height: 30,
+                  height: 40,
                 ),
                 TextFormField(
                   controller: myController,
@@ -77,7 +77,6 @@ class _RateOurAppState extends State<RateOurApp> {
           ],
         ),
       ),
-
     );
   }
 }
