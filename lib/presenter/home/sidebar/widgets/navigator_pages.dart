@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../calendar/calendar_page.dart';
 import '../../habits/categories/category_page.dart';
 import 'alert_box_bepremium.dart';
 import 'alex_box_rateourapp.dart';
@@ -36,9 +37,9 @@ class _NavigatorPagesState extends State<NavigatorPages> {
         // Adicionar caminho para a Pag. Configurações
         return const CategoryPage();
       case NavigationItem.becomePremium:
-        return const BePremium();
+        return CalendarPage();
       case NavigationItem.rateUs:
-        return const RateOurApp();
+        return CalendarPage();
       case NavigationItem.contactUs:
         return const HomePage();
     }

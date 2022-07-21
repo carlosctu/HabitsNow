@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../core/colors.dart';
+import '../db/pages/note_edit_widget.dart';
+import 'widgets/configuration_page.dart';
+import 'widgets/navigation_item.dart';
+import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -21,6 +27,16 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   late DateFormat dateFormat;
   late DateFormat timeFormat;
   late DateFormat dayFormat;
+  void openUrl() async {
+    const number = '5547988608094';
+    try {
+      await launch(
+        'https://wa.me/$number?text=Testando123',
+      );
+    } catch (e) {
+      print('Deu erro $e');
+    }
+  }
 
   @override
   void initState() {
@@ -49,7 +65,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       dateFormat: dateFormat,
                     ),
                   ),
-                  const SizedBox(height: 18),
+                  const SizedBox(height: 20),
                   buildSideBarItem(context,
                       item: NavigationItem.home,
                       text: 'Início',
@@ -60,9 +76,17 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       text: 'Categorias',
                       icon: Icons.category_outlined,
                       onClicked: () {}),
-                  const Divider(
-                    height: 40,
-                    color: Colors.white70,
+                  Container(
+                    height: 15,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.white12,
+                          width: 1,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                    ),
                   ),
                   buildSideBarItem(context,
                       item: NavigationItem.customize,
@@ -72,52 +96,64 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                   buildSideBarItem(context,
                       item: NavigationItem.configurations,
                       text: 'Configurações',
-                      icon: Icons.tune_outlined,
-                      onClicked: () {}),
-                  const Divider(
-                    height: 30,
-                    color: Colors.white70,
+                      icon: Icons.tune_outlined, onClicked: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ConfigurationPage(),
+                      ),
+                    );
+                  }),
+                  Container(
+                    height: 15,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.white10,
+                          width: 1,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                    ),
                   ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.becomePremium,
-                    text: 'Obtenha Premium',
-                    icon: Icons.verified_outlined,
-                    onClicked: () {
-                      BePremium alert = const BePremium();
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return alert;
-                        },
-                      );
-                    },
-                  ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.rateUs,
-                    text: 'Avalie o aplicativo',
-                    icon: Icons.rate_review,
-                    // ignore: avoid_print
-                    onClicked: () {
-                      RateOurApp alert = const RateOurApp();
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return alert;
-                        },
-                      );
-                    },
-                  ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.contactUs,
-                    text: 'Contate-nos',
-                    icon: Icons.report_outlined,
-                    onClicked: () {
-                      _openWhatsAppChat();
-                    },
-                  ),
+                  buildSideBarItem(context,
+                      item: NavigationItem.becomePremium,
+                      text: 'Obtenha Premium',
+                      icon: Icons.verified_outlined, onClicked: () {
+                    BePremium alert = const BePremium();
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return alert;
+                      },
+                    );
+                  }),
+                  buildSideBarItem(context,
+                      item: NavigationItem.rateUs,
+                      text: 'Avalie o aplicativo',
+                      icon: Icons.rate_review,
+                      // ignore: avoid_print
+                      onClicked: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AddEditNotePage(),
+                      ),
+                    );
+                    // RateOurApp alert = const RateOurApp();
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (BuildContext context) {
+                    //     return alert;
+                    //   },
+                    // );
+                  }),
+                  buildSideBarItem(context,
+                      item: NavigationItem.contactUs,
+                      text: 'Contate-nos',
+                      icon: Icons.report_outlined, onClicked: () {
+                    openUrl();
+                  }),
                 ],
               ),
             ],
@@ -125,10 +161,8 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
         ),
       );
 
-  void _openWhatsAppChat() async {
-    String phoneNumber = '5547988608094';
-    var url = 'https://wa.me/$phoneNumber?';
+  // void _openWhatsAppChat() async {
 // ignore: deprecated_member_use
-    await launch(url);
-  }
+//     await launch(url);
+//   }
 }

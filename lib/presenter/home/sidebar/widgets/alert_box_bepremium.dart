@@ -27,7 +27,7 @@ class BePremium extends StatelessWidget {
             decoration: const BoxDecoration(
               border: Border(
                 bottom: BorderSide(
-                  color: Colors.white10,
+                  color: Colors.white12,
                   width: 1,
                   style: BorderStyle.solid,
                 ),

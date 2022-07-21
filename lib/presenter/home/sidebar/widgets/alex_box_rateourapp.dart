@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/db/pages/notes_page.dart';
 
-class RateOurApp extends StatelessWidget {
+import 'configuration_page.dart';
+
+class RateOurApp extends StatefulWidget {
   const RateOurApp({
     Key? key,
   }) : super(key: key);
+
+  @override
+  State<RateOurApp> createState() => _RateOurAppState();
+}
+
+class _RateOurAppState extends State<RateOurApp> {
+  final myController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -52,6 +62,7 @@ class RateOurApp extends StatelessWidget {
                   height: 30,
                 ),
                 TextFormField(
+                  controller: myController,
                   cursorColor: const Color.fromARGB(255, 213, 32, 89),
                   decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(
@@ -66,37 +77,7 @@ class RateOurApp extends StatelessWidget {
           ],
         ),
       ),
-      actions: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            MaterialButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text(
-                'CANCELAR',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            MaterialButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text(
-                'ENVIAR',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 213, 32, 89),
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        ),
-      ],
+
     );
   }
 }
