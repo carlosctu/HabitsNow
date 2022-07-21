@@ -36,7 +36,7 @@ class _CustomTopBarState extends State<CustomTopBar> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) =>
-                        const HomePage(), // puxar calendario full
+                        HomePage(), // puxar calendario full
                   ),
                 );
               },

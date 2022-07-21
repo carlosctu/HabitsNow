@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'presenter/core/colors.dart';
 import 'presenter/home/sidebar/widgets/alex_box_rateourapp.dart';
 
-import 'presenter/home/calendar/calendar_page.dart';
 import 'presenter/home/home_page.dart';
 import 'package:provider/provider.dart';
 
@@ -47,16 +46,16 @@ class _MainPageState extends State<MainPage> {
         return HomePage();
       case NavigationItem.customize:
         // Adicionar caminho para a Pag. Personalizar
-        return const HomePage();
+        return HomePage();
       case NavigationItem.configurations:
         // Adicionar caminho para a Pag. Configurações
-        return const HomePage();
+        return HomePage();
       case NavigationItem.becomePremium:
         return const BePremium();
       case NavigationItem.rateUs:
         return const RateOurApp();
       case NavigationItem.contactUs:
-        return const HomePage();
+        return HomePage();
     }
   }
 }

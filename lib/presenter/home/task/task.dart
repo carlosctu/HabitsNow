@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:habits_now_app/presenter/core/colors.dart';
+import 'package:habits_now_app/presenter/home/bottombar/bottom_nav_bar.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/navigator_pages.dart';
 import 'package:habits_now_app/presenter/widgets/customImgCont.dart';
 
