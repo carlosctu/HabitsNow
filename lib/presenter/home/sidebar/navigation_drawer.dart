@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../../core/colors.dart';
+import '../db/pages/reviews_page.dart';
+import '../db/widgets/rate_us_alert_box.dart';
+import 'widgets/configuration_page.dart';
 import 'widgets/navigation_item.dart';
-import 'widgets/navigation_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import '../../widgets/alert_box_bepremium.dart';
+import 'widgets/header_sidebar.dart';
+import 'widgets/sidebar_item_builder.dart';
 
 class NavigationDrawer extends StatefulWidget {
   const NavigationDrawer({Key? key}) : super(key: key);
@@ -16,6 +22,17 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   late DateFormat dateFormat;
   late DateFormat timeFormat;
   late DateFormat dayFormat;
+  void openUrl() async {
+    const number = '5547988608094';
+    try {
+      await launch(
+        'https://wa.me/$number?text=Testando123',
+      );
+    } catch (e) {
+      print('Deu erro $e');
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -29,7 +46,7 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
   Widget build(BuildContext context) => Drawer(
         width: MediaQuery.of(context).size.width / 1.4,
         child: Container(
-          color: const Color.fromARGB(255, 22, 22, 22),
+          color: AppColors.backgroundPage,
           child: ListView(
             children: <Widget>[
               Column(
@@ -37,133 +54,115 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                 children: [
                   Container(
                     padding: const EdgeInsets.only(left: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        const Text(
-                          "HabitsNow",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 213, 32, 89),
-                            fontSize: 32,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          dayFormat.format(dateTime),
-                          style: const TextStyle(
-                            color: Colors.white70,
-                            fontSize: 20,
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Text(
-                          dateFormat.format(dateTime),
-                          style: const TextStyle(
-                            color: Colors.white70,
-                            fontSize: 20,
-                          ),
-                        ),
-                      ],
+                    child: HeaderSideBar(
+                      dayFormat: dayFormat,
+                      dateTime: dateTime,
+                      dateFormat: dateFormat,
                     ),
                   ),
-                  const SizedBox(height: 18),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.home,
-                    text: 'Início',
-                    icon: Icons.home_outlined,
-                  ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.categories,
-                    text: 'Categorias',
-                    icon: Icons.category_outlined,
-                  ),
-                  const Divider(
-                    height: 40,
-                    color: Colors.white70,
-                  ),
-                  buildSideBarItem(
-                    context,
-                    item: NavigationItem.customize,
-                    text: 'Personalizar',
-                    icon: Icons.color_lens_outlined,
+                  const SizedBox(height: 20),
+                  buildSideBarItem(context,
+                      item: NavigationItem.home,
+                      text: 'Início',
+                      icon: Icons.home_outlined,
+                      onClicked: () {}),
+                  buildSideBarItem(context,
+                      item: NavigationItem.categories,
+                      text: 'Categorias',
+                      icon: Icons.category_outlined,
+                      onClicked: () {}),
+                  Container(
+                    height: 12,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.white12,
+                          width: 1,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                    ),
                   ),
                   buildSideBarItem(
                     context,
                     item: NavigationItem.configurations,
                     text: 'Configurações',
                     icon: Icons.tune_outlined,
+                    onClicked: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ConfigurationPage(),
+                        ),
+                      );
+                    },
                   ),
-                  const Divider(
-                    height: 30,
-                    color: Colors.white70,
+                  Container(
+                    height: 12,
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        bottom: BorderSide(
+                          color: Colors.white10,
+                          width: 1,
+                          style: BorderStyle.solid,
+                        ),
+                      ),
+                    ),
                   ),
                   buildSideBarItem(
                     context,
                     item: NavigationItem.becomePremium,
                     text: 'Obtenha Premium',
                     icon: Icons.verified_outlined,
+                    onClicked: () {
+                      BePremium alert = const BePremium();
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return alert;
+                        },
+                      );
+                    },
                   ),
                   buildSideBarItem(
                     context,
                     item: NavigationItem.rateUs,
                     text: 'Avalie o aplicativo',
-                    icon: Icons.rate_review,
+                    icon: Icons.rate_review_outlined,
+                    // ignore: avoid_print
+                    onClicked: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const RateUsAlexBox(),
+                        ),
+                      );
+                    },
                   ),
                   buildSideBarItem(
                     context,
-                    item: NavigationItem.contactUs,
-                    text: 'Contate-nos',
-                    icon: Icons.report_outlined,
+                    item: NavigationItem.customize,
+                    text: 'Reviews',
+                    icon: Icons.reviews_outlined,
+                    onClicked: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ReviewsPage(),
+                        ),
+                      );
+                    },
                   ),
+                  buildSideBarItem(context,
+                      item: NavigationItem.contactUs,
+                      text: 'Contate-nos',
+                      icon: Icons.report_outlined, onClicked: () {
+                    openUrl();
+                  }),
                 ],
               ),
             ],
           ),
         ),
       );
-
-  Widget buildSideBarItem(
-    BuildContext context, {
-    required NavigationItem item,
-    required String text,
-    required IconData icon,
-  }) {
-    final provider = Provider.of<NavigationProvider>(context);
-    final currentItem = provider.navigationItem;
-    final isSelected = item == currentItem;
-    final color =
-        isSelected ? const Color.fromARGB(255, 213, 32, 89) : Colors.white70;
-
-    return Material(
-      color: Colors.transparent,
-      child: ListTile(
-        selected: isSelected,
-        selectedTileColor: const Color.fromARGB(50, 213, 32, 89),
-        leading: Icon(icon, color: color),
-        title: Text(
-          text,
-          style: TextStyle(
-            color: color,
-            fontSize: 18,
-          ),
-        ),
-        onTap: () => selectItem(context, item),
-      ),
-    );
-  }
-
-  void selectItem(BuildContext context, NavigationItem item) {
-    final provider = Provider.of<NavigationProvider>(context, listen: false);
-    provider.setNavigationItem(item);
-  }
 }
