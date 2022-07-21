@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
 import 'widgets/show_modal_button.dart';
 import '../../widgets/custom_top_bar.dart';
+>>>>>>> 9da76760278b31505f9314dc986d0e3f78ad5e85
 
 import '../../core/colors.dart';
 import '../../widgets/customImgCont.dart';
+import '../../widgets/custom_top_bar.dart';
 import '../sidebar/navigation_drawer.dart';
 import 'state/habits_list_widget.dart';
 
@@ -30,7 +34,7 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: const CustomTopBar(title: 'Tarefas'),
+        appBar: const CustomTopBar(title: 'Hábitos'),
         drawer: const NavigationDrawer(),
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         body: SingleChildScrollView(
