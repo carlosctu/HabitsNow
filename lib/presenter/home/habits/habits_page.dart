@@ -63,7 +63,10 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
               const SizedBox(
                 height: 30,
               ),
-              Center(child: CustomImgCont()),
+              Center(
+                  child: CustomImgCont(
+                assetPath: 'assets/img/habits.jpg',
+              )),
               const SizedBox(
                 height: 10,
               ),
