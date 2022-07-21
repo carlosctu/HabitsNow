@@ -13,6 +13,7 @@ import 'package:provider/provider.dart';
 import 'presenter/home/sidebar/widgets/alert_box_bepremium.dart';
 import 'presenter/home/sidebar/widgets/navigation_item.dart';
 import 'presenter/home/sidebar/widgets/navigation_provider.dart';
+import 'presenter/widgets/splash_screen.dart';
 
 void main() {
   runApp(MultiProvider(
@@ -33,7 +34,7 @@ void main() {
       theme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       title: "Main Page",
-      home: const MainPage(),
+      home: const SplashPage(),
     ),
   ));
 }
