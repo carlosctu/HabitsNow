@@ -9,24 +9,37 @@ import 'sidebar/navigation_drawer.dart';
 import 'sidebar/widgets/alert_box_bepremium.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  int _selectedIndex = 0; //setando o index inicial do app
+  static Widget? calendar;
+  static int selectedIndex = 0; //setando o index inicial do app
   static final List<Widget> _appPages = [
-    CalendarPage(),
+    calendar!,
     HabitsPage(),
     TaskPage(),
     ConfigurationPage(),
   ]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
 
+@override
+  void initState() {
+    calendar = CalendarPage(callback: callback);
+    super.initState();
+  }
+
+  void callback() {
+      setState(() {
+        selectedIndex = 2;
+      });
+  }
+
   void _onitemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      selectedIndex = index;
     });
   } //função pra trocar de página
 
@@ -37,7 +50,7 @@ class _HomePageState extends State<HomePage> {
       //   title: const Text("Home Page"),
       // ),
       body: Center(
-        child: _appPages.elementAt(_selectedIndex),
+        child: _appPages.elementAt(selectedIndex),
       ),
       drawer: const NavigationDrawer(),
       floatingActionButton: ShowModalButton(),
@@ -76,7 +89,7 @@ class _HomePageState extends State<HomePage> {
             label: 'Categorias',
           ),
         ],
-        currentIndex: _selectedIndex,
+        currentIndex: selectedIndex,
         selectedItemColor: AppColors.iconActivePage,
         onTap: _onitemTapped,
       ),
