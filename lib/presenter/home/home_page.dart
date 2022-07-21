@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/habits/categories/category_page.dart';
 import 'package:habits_now_app/presenter/home/habits/widgets/show_modal_button.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/configuration_page.dart';
 import 'package:habits_now_app/presenter/home/task/task.dart';
@@ -22,7 +23,7 @@ class _HomePageState extends State<HomePage> {
     calendar!,
     HabitsPage(),
     TaskPage(),
-    ConfigurationPage(),
+    CategoryPage(),
   ]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
 
 @override

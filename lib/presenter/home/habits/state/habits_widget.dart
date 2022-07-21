@@ -81,6 +81,6 @@ class HabitsWidget extends StatelessWidget {
     final provider = Provider.of<HabitsProvider>(context, listen: false);
     provider.removeHabits(habits);
 
-    Utils.showSnackBar(context, 'Hábito deletada!');
+    Utils.showSnackBar(context, 'Hábito deletado!');
   }
 }
