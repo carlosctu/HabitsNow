@@ -36,7 +36,7 @@ class HabitModal extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: const [
                       Text(
-                        'Habito',
+                        'Hábito',
                         style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                       SizedBox(
