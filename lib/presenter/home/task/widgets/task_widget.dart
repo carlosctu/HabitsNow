@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
-import 'package:habits_now_app/presenter/core/colors.dart';
-import 'package:habits_now_app/presenter/home/task/provider/task_provider.dart';
+import '../../../core/colors.dart';
+import '../provider/task_provider.dart';
 import 'package:provider/provider.dart';
 
 import '../../../core/utils.dart';
@@ -68,7 +68,17 @@ class TaskWidget extends StatelessWidget {
                         height: 1.5,
                       ),
                     ),
-                  )
+                  ),
+                Container(
+                  margin: const EdgeInsets.only(top: 4),
+                  child: Text(
+                    task.calendar,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      height: 1.5,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),

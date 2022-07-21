@@ -16,6 +16,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
   final _formKey = GlobalKey<FormState>();
   String title = '';
   String description = '';
+  String calendarTime = '';
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +36,8 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
               onTitleChanged: (title) => setState(() => this.title = title),
               onDescriptionChanged: (description) =>
                   setState(() => this.description = description),
+              onCalendarChanged: (calendarTime) =>
+                  setState(() => this.calendarTime = calendarTime),
               onSaveTask: saveTask,
             )
           ],
@@ -50,11 +53,11 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
       return;
     } else {
       final task = Task(
-        id: DateTime.now().toString(),
-        title: title,
-        description: description,
-        createdTime: DateTime.now(),
-      );
+          id: DateTime.now().toString(),
+          title: title,
+          description: description,
+          createdTime: DateTime.now(),
+          calendar: calendarTime);
 
       final provider = Provider.of<TaskProvider>(context, listen: false);
       provider.addTask(task);

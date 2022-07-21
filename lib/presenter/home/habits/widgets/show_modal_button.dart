@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/habits/widgets/recurring_tasks_modal.dart';
-import 'package:habits_now_app/presenter/home/habits/widgets/tasks_modal.dart';
+import 'recurring_tasks_modal.dart';
+import 'tasks_modal.dart';
 
 import 'habit_modal.dart';
 

@@ -3,6 +3,9 @@ import 'package:habits_now_app/presenter/home/habits/categories/category_page.da
 import 'package:habits_now_app/presenter/home/habits/widgets/show_modal_button.dart';
 import 'package:habits_now_app/presenter/home/sidebar/widgets/configuration_page.dart';
 import 'package:habits_now_app/presenter/home/task/task.dart';
+import 'habits/widgets/show_modal_button.dart';
+import 'sidebar/widgets/configuration_page.dart';
+import 'task/task.dart';
 import '../core/colors.dart';
 import 'calendar/calendar_page.dart';
 import 'habits/habits_page.dart';
@@ -26,16 +29,16 @@ class _HomePageState extends State<HomePage> {
     CategoryPage(),
   ]; //--> descomentar e colocar as páginas dentro da lista assim que estiver tudo pronto
 
-@override
+  @override
   void initState() {
     calendar = CalendarPage(callback: callback);
     super.initState();
   }
 
   void callback() {
-      setState(() {
-        selectedIndex = 2;
-      });
+    setState(() {
+      selectedIndex = 2;
+    });
   }
 
   void _onitemTapped(int index) {

@@ -1,18 +1,25 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 
 class TaskFormWidget extends StatelessWidget {
   final String title;
   final String description;
+  final String calendar;
   final ValueChanged<String> onTitleChanged;
   final ValueChanged<String> onDescriptionChanged;
+  final ValueChanged<String> onCalendarChanged;
   final VoidCallback onSaveTask;
 
   const TaskFormWidget({
     Key? key,
     this.title = '',
     this.description = '',
+    this.calendar = '',
     required this.onTitleChanged,
     required this.onDescriptionChanged,
+    required this.onCalendarChanged,
     required this.onSaveTask,
   }) : super(key: key);
 
@@ -27,6 +34,10 @@ class TaskFormWidget extends StatelessWidget {
             height: 8,
           ),
           buildDescription(),
+          const SizedBox(
+            height: 8,
+          ),
+          buildCalendar(),
           const SizedBox(
             height: 8,
           ),
@@ -57,6 +68,19 @@ class TaskFormWidget extends StatelessWidget {
         decoration: const InputDecoration(
           border: UnderlineInputBorder(),
           labelText: 'Descrição da tarefa',
+        ),
+      );
+
+  Widget buildCalendar() => TextFormField(
+        inputFormatters: [
+          FilteringTextInputFormatter.digitsOnly,
+          DataInputFormatter()
+        ],
+        initialValue: calendar,
+        onChanged: onCalendarChanged,
+        decoration: const InputDecoration(
+          border: UnderlineInputBorder(),
+          labelText: 'Informe uma data',
         ),
       );
 

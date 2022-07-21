@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../task/provider/task_provider.dart';
 import 'habits_widget.dart';
 import 'provider/habits_provider.dart';
 

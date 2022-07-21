@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
+=======
+import 'widgets/show_modal_button.dart';
+import '../../widgets/custom_top_bar.dart';
+>>>>>>> 9da76760278b31505f9314dc986d0e3f78ad5e85
 
 import '../../core/colors.dart';
 import '../../widgets/customImgCont.dart';
@@ -62,7 +67,10 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
               const SizedBox(
                 height: 30,
               ),
-              Center(child: CustomImgCont()),
+              Center(
+                  child: CustomImgCont(
+                assetPath: 'assets/img/habits.jpg',
+              )),
               const SizedBox(
                 height: 10,
               ),
