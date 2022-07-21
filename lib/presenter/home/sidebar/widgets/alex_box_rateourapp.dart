@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/db/pages/notes_page.dart';
+
+import 'configuration_page.dart';
 
 class RateOurApp extends StatefulWidget {
   const RateOurApp({
@@ -74,38 +77,7 @@ class _RateOurAppState extends State<RateOurApp> {
           ],
         ),
       ),
-      actions: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            MaterialButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text(
-                'CANCELAR',
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            MaterialButton(
-              onPressed: () {
-                print(Text(myController.text));
-                Navigator.pop(context);
-              },
-              child: const Text(
-                'ENVIAR',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 213, 32, 89),
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold),
-              ),
-            ),
-          ],
-        ),
-      ],
+
     );
   }
 }

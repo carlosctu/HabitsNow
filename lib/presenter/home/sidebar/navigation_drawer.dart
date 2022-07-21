@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../core/colors.dart';
+import '../db/pages/note_edit_widget.dart';
 import 'widgets/navigation_item.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -128,13 +129,19 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       icon: Icons.rate_review,
                       // ignore: avoid_print
                       onClicked: () {
-                    RateOurApp alert = const RateOurApp();
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return alert;
-                      },
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AddEditNotePage(),
+                      ),
                     );
+                    // RateOurApp alert = const RateOurApp();
+                    // showDialog(
+                    //   context: context,
+                    //   builder: (BuildContext context) {
+                    //     return alert;
+                    //   },
+                    // );
                   }),
                   buildSideBarItem(context,
                       item: NavigationItem.contactUs,
