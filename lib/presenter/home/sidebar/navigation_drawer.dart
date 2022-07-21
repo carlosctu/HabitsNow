@@ -3,12 +3,11 @@ import 'package:url_launcher/url_launcher.dart';
 import '../../core/colors.dart';
 import '../db/pages/reviews_page.dart';
 import '../db/widgets/rate_us_alert_box.dart';
+import 'widgets/configuration_page.dart';
 import 'widgets/navigation_item.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'widgets/alert_box_bepremium.dart';
-import 'widgets/alex_box_rateourapp.dart';
-import 'widgets/configuration_page.dart';
 import 'widgets/header_sidebar.dart';
 import 'widgets/sidebar_item_builder.dart';
 
@@ -166,9 +165,4 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
           ),
         ),
       );
-
-  // void _openWhatsAppChat() async {
-// ignore: deprecated_member_use
-  // await launch(url);
-  // } // Envia mensagem pro WhatsApp (precisa como developer)
 }

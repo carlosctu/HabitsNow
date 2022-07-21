@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '../home/calendar/calendar_page.dart';
+
 import '../core/colors.dart';
+import '../home/home_page.dart';
 
 class CustomTopBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomTopBar({
@@ -14,7 +15,7 @@ class CustomTopBar extends StatefulWidget implements PreferredSizeWidget {
 
   @override
   State<CustomTopBar> createState() => _CustomTopBarState();
-
+  
   @override
   Size get preferredSize => const Size(double.maxFinite, 56);
 }
@@ -35,7 +36,7 @@ class _CustomTopBarState extends State<CustomTopBar> {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: (context) =>
-                        CalendarPage(), // puxar calendario full
+                        const HomePage(),
                   ),
                 );
               },

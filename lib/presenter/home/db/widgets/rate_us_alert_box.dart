@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../database.dart';
 import '../review.dart';
 import 'rate_us_form.dart';
-import '../pages/reviews_page.dart';
 
 class RateUsAlexBox extends StatefulWidget {
   final Review? note;

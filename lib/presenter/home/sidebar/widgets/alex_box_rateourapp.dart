@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:habits_now_app/presenter/home/db/pages/reviews_page.dart';
+import '../../db/pages/reviews_page.dart';
 
 import 'configuration_page.dart';
 

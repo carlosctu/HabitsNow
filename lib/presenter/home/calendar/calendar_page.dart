@@ -7,35 +7,29 @@ import 'package:table_calendar/table_calendar.dart';
 
 import '../../core/colors.dart';
 import '../../widgets/custom_top_bar.dart';
-import '../bottombar/bottom_nav_bar.dart';
 import '../sidebar/navigation_drawer.dart';
 import 'events.dart';
 
 class CalendarPage extends StatefulWidget {
-  CalendarPage({Key? key}) : super(key: key);
-  final String diaFocado = _CalendarPageState.diaFocado;
-  final CalendarFormat formato = _CalendarPageState.formato;
+  CalendarPage({Key? key, this.callback}) : super(key: key);
+  final String diaFocado = CalendarPageState.diaFocado;
+  final CalendarFormat formato = CalendarPageState.formato;
+  final Function? callback;
 
   @override
-  State<CalendarPage> createState() => _CalendarPageState();
+  State<CalendarPage> createState() => CalendarPageState();
 }
 
-class _CalendarPageState extends State<CalendarPage> {
-  @override
-  void initState() {
-    super.initState();
-    diaFocado = "Hoje";
-    initializeDateFormatting();
-  }
-
+class CalendarPageState extends State<CalendarPage> {
   static String diaFocado = "";
   static CalendarFormat formato = CalendarFormat.week;
   Color corIconeAgenda = AppColors.iconDisablePage;
   int contButtonAgenda = 0;
+  static DateTime? diaSelecionado = DateTime.now();
 
-  final ValueNotifier<List<Event>> _selectedEvents = ValueNotifier([]);
+  final ValueNotifier<List<Event>> selectedEvents = ValueNotifier([]);
 
-  final Set<DateTime> _selectedDays = LinkedHashSet<DateTime>(
+  final Set<DateTime> selectedDays = LinkedHashSet<DateTime>(
     equals: isSameDay,
     hashCode: getHashCode,
   );
@@ -44,7 +38,7 @@ class _CalendarPageState extends State<CalendarPage> {
 
   @override
   void dispose() {
-    _selectedEvents.dispose();
+    selectedEvents.dispose();
     super.dispose();
   }
 
@@ -62,23 +56,32 @@ class _CalendarPageState extends State<CalendarPage> {
     setState(
       () {
         _focusedDay = focusedDay;
-        if (_selectedDays.contains(selectedDay)) {
-          _selectedDays.remove(selectedDay);
+        if (selectedDays.contains(selectedDay)) {
+          selectedDays.remove(selectedDay);
         } else {
-          _selectedDays.add(selectedDay);
+          selectedDays.add(selectedDay);
         }
-        _CalendarPageState
-                .diaFocado = //DateFormat('EEEEE',"pt_BR").format(selectedDay);
+        CalendarPageState.diaSelecionado = selectedDay;
+        CalendarPageState
+                .diaFocado = 
             "${selectedDay.day} de ${DateFormat('MMMM', "pt_BR").format(selectedDay)} de ${selectedDay.year}";
       },
     );
 
-    _selectedEvents.value = _getEventsForDays(_selectedDays);
+    selectedEvents.value = _getEventsForDays(selectedDays);
+  }
+
+  @override
+  void initState() {
+    diaFocado = "Hoje";
+    initializeDateFormatting();
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 0, 0, 0),
       appBar: CustomTopBar(
         title: diaFocado,
         simbol: IconButton(
@@ -100,9 +103,7 @@ class _CalendarPageState extends State<CalendarPage> {
           ),
         ),
       ),
-      backgroundColor: AppColors.backgroundPage,
       drawer: const NavigationDrawer(),
-      bottomNavigationBar: const CustomBottomBar(),
       body: Column(
         children: [
           TableCalendar<Event>(
@@ -137,7 +138,7 @@ class _CalendarPageState extends State<CalendarPage> {
             eventLoader: _getEventsForDay,
             startingDayOfWeek: StartingDayOfWeek.sunday,
             selectedDayPredicate: (day) {
-              return _selectedDays.contains(day);
+              return selectedDays.contains(day);
             },
             onDaySelected: _onDaySelected,
             onPageChanged: (focusedDay) {
@@ -150,13 +151,13 @@ class _CalendarPageState extends State<CalendarPage> {
           ElevatedButton(
             style: ButtonStyle(
                 backgroundColor: MaterialStateProperty.all(AppColors.title)),
-            child: const Text('Clear selection'),
+            child: const Text('Limpar e atualizar'),
             onPressed: () {
               setState(
                 () {
-                  _selectedDays.clear();
-                  _selectedEvents.value = [];
-                  _CalendarPageState.diaFocado = "Hoje";
+                  selectedDays.clear();
+                  selectedEvents.value = [];
+                  CalendarPageState.diaFocado = "Hoje";
                 },
               );
             },
@@ -164,7 +165,7 @@ class _CalendarPageState extends State<CalendarPage> {
           const SizedBox(height: 8.0),
           Expanded(
             child: ValueListenableBuilder<List<Event>>(
-              valueListenable: _selectedEvents,
+              valueListenable: selectedEvents,
               builder: (context, value, _) {
                 return ListView.builder(
                   itemCount: value.length,
@@ -180,12 +181,9 @@ class _CalendarPageState extends State<CalendarPage> {
                         color: AppColors.iconDisablePage,
                       ),
                       child: ListTile(
-                        onTap: () => Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) =>
-                                CalendarPage(), // Adicionar caminho para a Pag. Tarefas ou Hábitos
-                          ),
-                        ),
+                        onTap: () {
+                          widget.callback!();
+                        },
                         title: Text(
                           '${value[index]}',
                           style: const TextStyle(color: Colors.black),

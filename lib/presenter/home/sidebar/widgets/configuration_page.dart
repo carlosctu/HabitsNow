@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import '../../../core/colors.dart';
 import '../../calendar/calendar_page.dart';
+import '../../home_page.dart';
 
 class ConfigurationPage extends StatelessWidget {
   const ConfigurationPage({Key? key}) : super(key: key);
@@ -20,7 +22,7 @@ class ConfigurationPage extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => CalendarPage(),
+                builder: (context) => const HomePage(),
               ),
             );
           },
@@ -109,6 +111,7 @@ class _ListViewBuilderState extends State<ListViewBuilder> {
     );
   }
 }
+
 class DefaultDialogBox extends StatelessWidget {
   const DefaultDialogBox({
     Key? key,

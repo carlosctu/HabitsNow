@@ -1,5 +1,5 @@
-
 import 'package:flutter/material.dart';
+import 'package:habits_now_app/presenter/home/home_page.dart';
 
 class BePremium extends StatelessWidget {
   const BePremium({
@@ -71,7 +71,11 @@ class BePremium extends StatelessWidget {
             MaterialButton(
               color: const Color.fromARGB(200, 213, 32, 89),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const HomePage(),
+                  ),
+                );
               },
               child: const Text(
                 'Ok',

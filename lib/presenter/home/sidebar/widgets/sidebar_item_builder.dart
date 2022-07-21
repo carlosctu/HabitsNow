@@ -17,7 +17,7 @@ Widget buildSideBarItem(BuildContext context,
       isSelected ? const Color.fromARGB(255, 213, 32, 89) : Colors.white70;
 
   return Material(
-    color: AppColors.backgroundPage,
+    color: Colors.transparent,
     child: ListTile(
       selected: isSelected,
       selectedTileColor: const Color.fromARGB(50, 213, 32, 89),

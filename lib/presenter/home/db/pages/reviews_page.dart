@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:habits_now_app/presenter/home/home_page.dart';
 
 import '../../calendar/calendar_page.dart';
 import '../database.dart';
@@ -59,7 +60,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => CalendarPage(),
+                  builder: (context) => const HomePage(),
                 ),
               );
             },
@@ -93,7 +94,9 @@ class _ReviewsPageState extends State<ReviewsPage> {
             onTap: () async {
               await Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => NoteDetailPage(noteId: note.id!),
+                  builder: (context) => NoteDetailPage(
+                    noteId: note.id!,
+                  ),
                 ),
               );
               refreshNotes();
