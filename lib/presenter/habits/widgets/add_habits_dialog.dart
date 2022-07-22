@@ -3,9 +3,9 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../../calendar/events.dart';
+import '../state/model/habits_model.dart';
+import '../state/provider/habits_provider.dart';
 import 'habits_form_widget.dart';
-import 'model/habits_model.dart';
-import 'provider/habits_provider.dart';
 
 class AddHabitsDialog extends StatefulWidget {
   const AddHabitsDialog({Key? key}) : super(key: key);

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../../../core/colors.dart';
+import '../../core/colors.dart';
 import 'default_dialog_box.dart';
 
 class ListViewBuilder extends StatefulWidget {

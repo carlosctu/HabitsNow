@@ -3,18 +3,18 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/colors.dart';
-import '../../../core/utils.dart';
 import '../../calendar/events.dart';
-import 'model/habits_model.dart';
-import 'provider/habits_provider.dart';
+import '../../core/colors.dart';
+import '../../core/utils.dart';
+import '../model/task_model.dart';
+import '../provider/task_provider.dart';
 
-class HabitsWidget extends StatelessWidget {
-  final Habits habits;
+class TaskWidget extends StatelessWidget {
+  final Task task;
 
-  const HabitsWidget({
+  const TaskWidget({
     Key? key,
-    required this.habits,
+    required this.task,
   }) : super(key: key);
 
   @override
@@ -22,13 +22,13 @@ class HabitsWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         child: Slidable(
           actionPane: const SlidableDrawerActionPane(),
-          key: Key(habits.id),
+          key: Key(task.id),
           actions: [
             IconSlideAction(
               color: Colors.red,
               caption: 'Deletar',
               onTap: () {
-                deleteTask(context, habits);
+                deleteTask(context, task);
               },
               icon: Icons.delete,
             )
@@ -48,17 +48,17 @@ class HabitsWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  habits.title,
+                  task.title,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 22,
                   ),
                 ),
-                if (habits.description.isNotEmpty)
+                if (task.description.isNotEmpty)
                   Container(
                     margin: const EdgeInsets.only(top: 4),
                     child: Text(
-                      habits.description,
+                      task.description,
                       style: const TextStyle(
                         fontSize: 20,
                         height: 1.5,
@@ -68,7 +68,7 @@ class HabitsWidget extends StatelessWidget {
                 Container(
                   margin: const EdgeInsets.only(top: 4),
                   child: Text(
-                    habits.calendar,
+                    task.calendar,
                     style: const TextStyle(
                       fontSize: 20,
                       height: 1.5,
@@ -83,14 +83,14 @@ class HabitsWidget extends StatelessWidget {
     );
   }
 
-  void deleteTask(BuildContext context, Habits task) {
+  void deleteTask(BuildContext context, Task task) {
     DateTime habitsDate = DateFormat.yMd("pt_BR").parseUTC(task.calendar);
     kEvents[habitsDate]!.remove(task.evento);
 
-    final provider = Provider.of<HabitsProvider>(context, listen: false);
+    final provider = Provider.of<TaskProvider>(context, listen: false);
 
-    provider.removeHabits(task);
+    provider.removeTask(task);
 
-    Utils.showSnackBar(context, 'Hábito deletado!');
+    Utils.showSnackBar(context, 'Tarefa deletada!');
   }
 }

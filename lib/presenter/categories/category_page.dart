@@ -1,12 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import '../core/colors.dart';
+import '../widgets/custom_top_bar.dart';
+import '../sidebar/navigation_drawer.dart';
+import 'widgets/abandoned_category.dart';
 import 'widgets/nutrition_category.dart';
 import 'widgets/outdoor_category.dart';
 
-import '../../../core/colors.dart';
-import '../../../widgets/custom_top_bar.dart';
-import '../../habits/categories/widgets/abandoned_category.dart';
-import '../../sidebar/navigation_drawer.dart';
 import 'widgets/health_category.dart';
 import 'widgets/meditation_category.dart';
 import 'widgets/sports_category.dart';

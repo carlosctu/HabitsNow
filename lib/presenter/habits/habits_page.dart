@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../../core/colors.dart';
-import '../../widgets/custom_img_cont.dart';
-import '../../widgets/custom_top_bar.dart';
+import '../core/colors.dart';
+import '../widgets/custom_img_cont.dart';
+import '../widgets/custom_top_bar.dart';
 import '../sidebar/navigation_drawer.dart';
-import 'widgets/task_list_widget.dart';
+import 'widgets/habits_list_widget.dart';
 
-class TaskPage extends StatefulWidget {
-  const TaskPage({Key? key}) : super(key: key);
+class HabitsPage extends StatefulWidget {
+  const HabitsPage({Key? key}) : super(key: key);
 
   @override
-  State<TaskPage> createState() => _TaskPageState();
+  State<HabitsPage> createState() => _HabitsPageState();
 }
 
-class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
+class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
   late TabController _colorController;
 
   @override
@@ -29,7 +29,7 @@ class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: const CustomTopBar(title: 'Tarefas'),
+        appBar: const CustomTopBar(title: 'Hábitos'),
         drawer: const NavigationDrawer(),
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         body: SingleChildScrollView(
@@ -42,7 +42,7 @@ class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
                 tabs: const [
                   Tab(
                     child: Text(
-                      'Tarefas Simples',
+                      'Hábitos Ativos',
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -50,7 +50,7 @@ class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
                   ),
                   Tab(
                     child: Text(
-                      'Tarefas Recorrentes',
+                      'Arquivados',
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -62,12 +62,14 @@ class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
                 height: 30,
               ),
               const Center(
-                child: CustomImgCont(),
+                child: CustomImgCont(
+                  assetPath: 'assets/img/habits.jpg',
+                ),
               ),
               const SizedBox(
                 height: 10,
               ),
-              const TaskListWidget(),
+              const HabitsListWidget(),
             ],
           ),
         ),

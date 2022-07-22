@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../../core/colors.dart';
-import '../../widgets/custom_img_cont.dart';
-import '../../widgets/custom_top_bar.dart';
+import '../core/colors.dart';
 import '../sidebar/navigation_drawer.dart';
-import 'state/habits_list_widget.dart';
+import '../widgets/custom_img_cont.dart';
+import '../widgets/custom_top_bar.dart';
+import 'widgets/task_list_widget.dart';
 
-class HabitsPage extends StatefulWidget {
-  const HabitsPage({Key? key}) : super(key: key);
+class TaskPage extends StatefulWidget {
+  const TaskPage({Key? key}) : super(key: key);
 
   @override
-  State<HabitsPage> createState() => _HabitsPageState();
+  State<TaskPage> createState() => _TaskPageState();
 }
 
-class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
+class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
   late TabController _colorController;
 
   @override
@@ -29,7 +29,7 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: const CustomTopBar(title: 'Hábitos'),
+        appBar: const CustomTopBar(title: 'Tarefas'),
         drawer: const NavigationDrawer(),
         backgroundColor: const Color.fromARGB(255, 0, 0, 0),
         body: SingleChildScrollView(
@@ -42,7 +42,7 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
                 tabs: const [
                   Tab(
                     child: Text(
-                      'Hábitos Ativos',
+                      'Tarefas Simples',
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -50,7 +50,7 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
                   ),
                   Tab(
                     child: Text(
-                      'Arquivados',
+                      'Tarefas Recorrentes',
                       style: TextStyle(
                         fontSize: 15,
                       ),
@@ -62,14 +62,12 @@ class _HabitsPageState extends State<HabitsPage> with TickerProviderStateMixin {
                 height: 30,
               ),
               const Center(
-                child: CustomImgCont(
-                  assetPath: 'assets/img/habits.jpg',
-                ),
+                child: CustomImgCont(),
               ),
               const SizedBox(
                 height: 10,
               ),
-              const HabitsListWidget(),
+              const TaskListWidget(),
             ],
           ),
         ),

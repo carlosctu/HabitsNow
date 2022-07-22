@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../state/add_habits_dialog.dart';
+import '../widgets/add_habits_dialog.dart';
 
 class HabitModal extends StatelessWidget {
   const HabitModal({

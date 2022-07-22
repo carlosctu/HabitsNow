@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../task/widgets/recurring_tasks_modal.dart';
+import '../../task/widgets/tasks_modal.dart';
 import 'habit_modal.dart';
-import 'recurring_tasks_modal.dart';
-import 'tasks_modal.dart';
 
 class ShowModalButton extends StatelessWidget {
   const ShowModalButton({
