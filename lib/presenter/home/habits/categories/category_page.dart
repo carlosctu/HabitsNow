@@ -69,7 +69,10 @@ class _CategoryPageState extends State<CategoryPage> {
             const SizedBox(height: 40),
             const Text(
               'Categorias padrão',
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             const SizedBox(height: 5),
             const Text(

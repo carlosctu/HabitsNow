@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
-import '../home/home_page.dart';
 
-class BePremium extends StatelessWidget {
-  const BePremium({
+import 'package:flutter/material.dart';
+
+class DefaultDialogBox extends StatelessWidget {
+  const DefaultDialogBox({
     Key? key,
   }) : super(key: key);
 
@@ -71,11 +71,7 @@ class BePremium extends StatelessWidget {
             MaterialButton(
               color: const Color.fromARGB(200, 213, 32, 89),
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => const HomePage(),
-                  ),
-                );
+                Navigator.pop(context);
               },
               child: const Text(
                 'Ok',

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
-import '../../../core/colors.dart';
-import '../../calendar/events.dart';
-import '../provider/task_provider.dart';
 import 'package:provider/provider.dart';
 
+import '../../../core/colors.dart';
 import '../../../core/utils.dart';
+import '../../calendar/events.dart';
 import '../model/task_model.dart';
+import '../provider/task_provider.dart';
 
 class TaskWidget extends StatelessWidget {
   final Task task;

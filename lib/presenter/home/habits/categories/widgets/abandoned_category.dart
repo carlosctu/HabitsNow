@@ -14,16 +14,18 @@ class AbandonedCategory extends StatelessWidget {
           Column(
             children: [
               Container(
-                  width: 60,
-                  height: 60,
-                  decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 49, 49, 49),
-                      borderRadius: BorderRadiusDirectional.circular(16)),
-                  child: const Icon(
-                    Icons.not_interested_rounded,
-                    size: 45,
-                    color: Color.fromARGB(255, 249, 32, 16),
-                  )),
+                width: 60,
+                height: 60,
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 49, 49, 49),
+                  borderRadius: BorderRadiusDirectional.circular(16),
+                ),
+                child: const Icon(
+                  Icons.not_interested_rounded,
+                  size: 45,
+                  color: Color.fromARGB(255, 249, 32, 16),
+                ),
+              ),
               const Text(
                 'Abandonados',
                 overflow: TextOverflow.ellipsis,
@@ -33,9 +35,10 @@ class AbandonedCategory extends StatelessWidget {
                 '0 entradas',
                 overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                    fontSize: 11,
-                    color: Color.fromARGB(255, 128, 128, 128),
-                    fontWeight: FontWeight.w600),
+                  fontSize: 11,
+                  color: Color.fromARGB(255, 128, 128, 128),
+                  fontWeight: FontWeight.w600,
+                ),
               ),
             ],
           ),

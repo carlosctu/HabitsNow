@@ -31,7 +31,10 @@ class _AddHabitsDialogState extends State<AddHabitsDialog> {
           children: [
             const Text(
               'Adicione um hábito!',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 22),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+              ),
             ),
             const SizedBox(height: 8),
             HabitsFormWidget(

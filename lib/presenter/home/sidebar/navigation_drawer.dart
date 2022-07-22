@@ -1,15 +1,16 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import '../../core/colors.dart';
+import '../../widgets/alert_box_bepremium.dart';
 import '../db/pages/reviews_page.dart';
 import '../db/widgets/rate_us_alert_box.dart';
-import 'widgets/configuration_page.dart';
-import 'widgets/navigation_item.dart';
-import 'package:intl/intl.dart';
-import 'package:intl/date_symbol_data_local.dart';
-import '../../widgets/alert_box_bepremium.dart';
+import '../configuration/configuration_page.dart';
 import 'widgets/header_sidebar.dart';
+import 'widgets/navigation_item.dart';
 import 'widgets/sidebar_item_builder.dart';
 
 class NavigationDrawer extends StatefulWidget {
@@ -156,12 +157,15 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
                       );
                     },
                   ),
-                  buildSideBarItem(context,
-                      item: NavigationItem.contactUs,
-                      text: 'Contate-nos',
-                      icon: Icons.report_outlined, onClicked: () {
-                    openUrl();
-                  }),
+                  buildSideBarItem(
+                    context,
+                    item: NavigationItem.contactUs,
+                    text: 'Contate-nos',
+                    icon: Icons.report_outlined,
+                    onClicked: () {
+                      openUrl();
+                    },
+                  ),
                 ],
               ),
             ],

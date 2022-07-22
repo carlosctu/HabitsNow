@@ -69,8 +69,6 @@ CREATE TABLE $tableReviews (
     final db = await instance.database;
 
     const orderBy = '${ReviewsFields.time} ASC';
-    // final result =
-    //     await db.rawQuery('SELECT * FROM $tablereviews ORDER BY $orderBy');
 
     final result = await db.query(tableReviews, orderBy: orderBy);
 

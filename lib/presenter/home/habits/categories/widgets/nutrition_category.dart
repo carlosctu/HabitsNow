@@ -11,8 +11,9 @@ class NutritionCategory extends StatelessWidget {
       width: 60,
       child: Column(
         children: [
-          Column(children: [
-            Container(
+          Column(
+            children: [
+              Container(
                 width: 60,
                 height: 60,
                 decoration: BoxDecoration(
@@ -24,25 +25,25 @@ class NutritionCategory extends StatelessWidget {
                   size: 50,
                   color: Color.fromARGB(255, 218, 195, 25),
                 ),
+              ),
+              const Text(
+                'Saúde',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w600,
                 ),
-            const Text(
-              'Saúde',
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w600,
               ),
-            ),
-            const Text(
-              '0 entradas',
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 11,
-                color: Color.fromARGB(255, 128, 128, 128),
-                fontWeight: FontWeight.w600,
-              ),
-            )
-          ],
+              const Text(
+                '0 entradas',
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 11,
+                  color: Color.fromARGB(255, 128, 128, 128),
+                  fontWeight: FontWeight.w600,
+                ),
+              )
+            ],
           ),
         ],
       ),

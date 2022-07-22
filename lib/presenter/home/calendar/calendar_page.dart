@@ -62,8 +62,7 @@ class CalendarPageState extends State<CalendarPage> {
           selectedDays.add(selectedDay);
         }
         CalendarPageState.diaSelecionado = selectedDay;
-        CalendarPageState
-                .diaFocado = 
+        CalendarPageState.diaFocado =
             "${selectedDay.day} de ${DateFormat('MMMM', "pt_BR").format(selectedDay)} de ${selectedDay.year}";
       },
     );
@@ -86,16 +85,18 @@ class CalendarPageState extends State<CalendarPage> {
         title: diaFocado,
         simbol: IconButton(
           onPressed: () {
-            setState(() {
-              contButtonAgenda++;
-              if (contButtonAgenda % 2 != 0) {
-                corIconeAgenda = AppColors.iconActivePage;
-                formato = CalendarFormat.month;
-              } else {
-                corIconeAgenda = AppColors.iconDisablePage;
-                formato = CalendarFormat.week;
-              }
-            });
+            setState(
+              () {
+                contButtonAgenda++;
+                if (contButtonAgenda % 2 != 0) {
+                  corIconeAgenda = AppColors.iconActivePage;
+                  formato = CalendarFormat.month;
+                } else {
+                  corIconeAgenda = AppColors.iconDisablePage;
+                  formato = CalendarFormat.week;
+                }
+              },
+            );
           },
           icon: Icon(
             Icons.calendar_today_outlined,

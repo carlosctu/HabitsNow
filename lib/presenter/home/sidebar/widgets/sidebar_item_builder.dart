@@ -28,7 +28,6 @@ Widget buildSideBarItem(BuildContext context,
           fontSize: 18,
         ),
       ),
-      // ignore: avoid_print
       onTap: () {
         selectItem(context, item);
         onClicked();

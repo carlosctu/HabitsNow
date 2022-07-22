@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import '../../core/colors.dart';
-import 'widgets/task_list_widget.dart';
-import '../../widgets/custom_img_cont.dart';
 
+import '../../core/colors.dart';
+import '../../widgets/custom_img_cont.dart';
 import '../../widgets/custom_top_bar.dart';
 import '../sidebar/navigation_drawer.dart';
+import 'widgets/task_list_widget.dart';
 
 class TaskPage extends StatefulWidget {
   const TaskPage({Key? key}) : super(key: key);
@@ -61,7 +61,9 @@ class _TaskPageState extends State<TaskPage> with TickerProviderStateMixin {
               const SizedBox(
                 height: 30,
               ),
-              const Center(child: CustomImgCont()),
+              const Center(
+                child: CustomImgCont(),
+              ),
               const SizedBox(
                 height: 10,
               ),

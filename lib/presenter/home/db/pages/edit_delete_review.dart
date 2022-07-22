@@ -75,16 +75,19 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
       );
 
   Widget editButton() => IconButton(
-      icon: const Icon(Icons.edit_outlined),
-      onPressed: () async {
-        if (isLoading) return;
+        icon: const Icon(Icons.edit_outlined),
+        onPressed: () async {
+          if (isLoading) return;
 
-        await Navigator.of(context).push(MaterialPageRoute(
-          builder: (context) => RateUsAlexBox(note: note),
-        ));
+          await Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => RateUsAlexBox(note: note),
+            ),
+          );
 
-        refreshNote();
-      });
+          refreshNote();
+        },
+      );
 
   Widget deleteButton() => IconButton(
         icon: const Icon(Icons.delete),

@@ -15,7 +15,7 @@ class CustomTopBar extends StatefulWidget implements PreferredSizeWidget {
 
   @override
   State<CustomTopBar> createState() => _CustomTopBarState();
-  
+
   @override
   Size get preferredSize => const Size(double.maxFinite, 56);
 }
@@ -35,8 +35,7 @@ class _CustomTopBarState extends State<CustomTopBar> {
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) =>
-                        const HomePage(),
+                    builder: (context) => const HomePage(),
                   ),
                 );
               },
