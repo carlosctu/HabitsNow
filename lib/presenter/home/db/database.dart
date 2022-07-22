@@ -25,10 +25,10 @@ class ReviewsDatabase {
   }
 
   Future _createDB(Database db, int version) async {
-    final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
-    final textType = 'TEXT NOT NULL';
-    final boolType = 'BOOLEAN NOT NULL';
-    final integerType = 'INTEGER NOT NULL';
+    const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+    const textType = 'TEXT NOT NULL';
+    const boolType = 'BOOLEAN NOT NULL';
+    const integerType = 'INTEGER NOT NULL';
 
     await db.execute('''
 CREATE TABLE $tableReviews ( 
@@ -68,7 +68,7 @@ CREATE TABLE $tableReviews (
   Future<List<Review>> readAllReviews() async {
     final db = await instance.database;
 
-    final orderBy = '${ReviewsFields.time} ASC';
+    const orderBy = '${ReviewsFields.time} ASC';
     // final result =
     //     await db.rawQuery('SELECT * FROM $tablereviews ORDER BY $orderBy');
 

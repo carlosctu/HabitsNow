@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../core/colors.dart';
@@ -29,7 +30,9 @@ class _NavigationDrawerState extends State<NavigationDrawer> {
         'https://wa.me/$number?text=Testando123',
       );
     } catch (e) {
-      print('Deu erro $e');
+      if (kDebugMode) {
+        print('Deu erro $e');
+      }
     }
   }
 

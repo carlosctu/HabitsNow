@@ -12,6 +12,7 @@ class RateUsAlexBox extends StatefulWidget {
     this.note,
   }) : super(key: key);
   @override
+  // ignore: library_private_types_in_public_api
   _RateUsAlexBoxState createState() => _RateUsAlexBoxState();
 }
 
@@ -147,8 +148,9 @@ class _RateUsAlexBoxState extends State<RateUsAlexBox> {
       } else {
         await addNote();
       }
-
-      Navigator.of(context).pop();
+      if (mounted){
+        Navigator.of(context).pop();
+      }
     }
   }
 

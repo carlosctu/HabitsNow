@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../core/colors.dart';
-import '../../calendar/calendar_page.dart';
 import '../../home_page.dart';
 
 class ConfigurationPage extends StatelessWidget {

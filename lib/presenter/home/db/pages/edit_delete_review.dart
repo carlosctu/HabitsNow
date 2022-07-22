@@ -15,6 +15,7 @@ class NoteDetailPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _NoteDetailPageState createState() => _NoteDetailPageState();
 }
 
@@ -32,7 +33,7 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
   Future refreshNote() async {
     setState(() => isLoading = true);
 
-    this.note = await ReviewsDatabase.instance.readNote(widget.noteId);
+    note = await ReviewsDatabase.instance.readNote(widget.noteId);
 
     setState(() => isLoading = false);
   }
@@ -90,7 +91,9 @@ class _NoteDetailPageState extends State<NoteDetailPage> {
         onPressed: () async {
           await ReviewsDatabase.instance.delete(widget.noteId);
 
-          Navigator.of(context).pop();
+          if (mounted) {
+            Navigator.of(context).pop();
+          }
         },
       );
 }

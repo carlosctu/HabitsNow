@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:habits_now_app/presenter/home/home_page.dart';
 
-import '../../calendar/calendar_page.dart';
 import '../database.dart';
 import '../review.dart';
 import '../widgets/review_card_widget.dart';
@@ -12,6 +11,7 @@ class ReviewsPage extends StatefulWidget {
   const ReviewsPage({Key? key}) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _ReviewsPageState createState() => _ReviewsPageState();
 }
 
@@ -38,7 +38,7 @@ class _ReviewsPageState extends State<ReviewsPage> {
     setState(() => isLoading = true);
 
     // Neste método lemos todas os objetos da classe dentro da nossa DB
-    this.notes = await ReviewsDatabase.instance.readAllReviews();
+    notes = await ReviewsDatabase.instance.readAllReviews();
 
     setState(() => isLoading = false);
   }
