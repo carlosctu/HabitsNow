@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/colors.dart';
+import '../../core/colors.dart';
 import '../sidebar/navigation_drawer.dart';
 import '../widgets/custom_img_cont.dart';
 import '../widgets/custom_top_bar.dart';

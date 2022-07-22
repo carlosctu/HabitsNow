@@ -3,8 +3,8 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
-import '../../core/colors.dart';
-import '../../core/utils.dart';
+import '../../../core/colors.dart';
+import '../../../core/utils.dart';
 import '../../calendar/events.dart';
 import '../state/model/habits_model.dart';
 import '../state/provider/habits_provider.dart';

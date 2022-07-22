@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/colors.dart';
+import '../../core/colors.dart';
 import '../home/home_page.dart';
 
 class CustomTopBar extends StatefulWidget implements PreferredSizeWidget {

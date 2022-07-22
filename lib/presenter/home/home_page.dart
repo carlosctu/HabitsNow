@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../core/colors.dart';
+import '../../core/colors.dart';
 import '../calendar/calendar_page.dart';
 import '../categories/category_page.dart';
 import '../habits/habits_page.dart';

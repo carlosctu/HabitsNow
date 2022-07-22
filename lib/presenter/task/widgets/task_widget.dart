@@ -4,8 +4,8 @@ import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 import '../../calendar/events.dart';
-import '../../core/colors.dart';
-import '../../core/utils.dart';
+import '../../../core/colors.dart';
+import '../../../core/utils.dart';
 import '../model/task_model.dart';
 import '../provider/task_provider.dart';
 

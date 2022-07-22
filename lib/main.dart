@@ -4,7 +4,7 @@ import 'package:habits_now_app/presenter/task/provider/task_provider.dart';
 import 'package:habits_now_app/presenter/task/task.dart';
 import 'package:provider/provider.dart';
 
-import 'presenter/core/colors.dart';
+import 'core/colors.dart';
 import 'presenter/sidebar/widgets/navigation_provider.dart';
 import 'presenter/widgets/splash_screen.dart';
 
